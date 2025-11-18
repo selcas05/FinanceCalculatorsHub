@@ -1,8 +1,69 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /login/
-Disallow: /cgi-bin/
 
-# Sitemap reference
+# --------------------------------------
+# Prevent crawling of system / private folders
+# --------------------------------------
+Disallow: /admin/
+Disallow: /server/
+Disallow: /api/
+Disallow: /temp/
+Disallow: /drafts/
+Disallow: /backup/
+Disallow: /testing/
+Disallow: /private/
+
+# --------------------------------------
+# Block unnecessary file types (SEO Clean)
+# --------------------------------------
+Disallow: /*.json$
+Disallow: /*.log$
+Disallow: /*.sql$
+Disallow: /*.zip$
+Disallow: /*.tar$
+Disallow: /*.env$
+
+# --------------------------------------
+# Prevent duplicate content URLs
+# (Stops Google from crawling search params, ?ref=, ?utm= etc.)
+# --------------------------------------
+Disallow: /*?*
+Disallow: /*&*
+
+# Allow essential parameter for internal search
+Allow: /search?q=
+
+# --------------------------------------
+# Allow Googlebot full JS/CSS crawling
+# Important for AdSense and Core Web Vitals
+# --------------------------------------
+User-agent: Googlebot
+Allow: /*.js
+Allow: /*.css
+Allow: /
+
+# --------------------------------------
+# Block harmful & scrapers (recommended)
+# --------------------------------------
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SEMrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+# --------------------------------------
+# Sitemap location
+# --------------------------------------
 Sitemap: https://financecalculatorshub.com/sitemap.xml
