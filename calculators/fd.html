@@ -1,0 +1,1336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6820451791285069"
+     crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title id="pageTitle">Fixed Deposit Calculator &mdash; FinanceCalculatorsHub</title>
+<meta name="description" id="metaDesc" content="Fixed Deposit (FD) and Term Deposit calculator with maturity value, APY / effective rate, interest breakdown, charts and professional PDF report. Supports CD (USA), Fixed Rate Bond (UK), Term Deposit (AUS) and FD (India)."/>
+
+<!-- ? FIXED CANONICAL -->
+<link rel="canonical" id="canonicalLink" href="https://financecalculatorshub.com/calculators/fd.html"/>
+
+<link rel="icon" href="/favicon-32.png"/>
+
+<!-- Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+<style>
+/* PREMIUM THEME (unchanged) */
+:root{
+  --bg:#f6f8fb; --panel:#fff; --muted:#6b7280; --primary:#0f62fe;
+  --accent:#00bfa6; --line: rgba(15,23,42,0.06); --radius:14px; --shadow:0 12px 30px rgba(7,18,40,0.06);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#0b1220}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+.header{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.logo{width:56px;height:56px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:800}
+.title{font-size:20px;font-weight:800;margin:0}
+.sub{font-size:13px;color:var(--muted);margin-top:4px}
+.grid{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:20px}
+@media(max-width:980px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);padding:18px}
+label{font-weight:700;margin-bottom:6px;display:block}
+.input, select{width:100%;padding:12px;font-size:15px;border:1px solid var(--line);border-radius:10px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn-main{flex:1;padding:12px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--primary),#005cff);color:#fff;font-weight:800;cursor:pointer}
+.btn-ghost{flex:1;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:#000;cursor:pointer}
+.metrics{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.metric{flex:1;min-width:150px;background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff;padding:12px;border-radius:12px;font-size:15px;font-weight:800;text-align:center}
+.table-box{max-height:360px;overflow:auto;margin-top:16px;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;border-bottom:1px solid var(--line);font-size:14px}
+th{background:#f8fafc;text-align:left;position:sticky;top:0}
+.side-card{display:flex;flex-direction:column;gap:16px}
+.chart-box{height:220px;background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:8px}
+.summary{padding:14px;border:1px dashed var(--line);border-radius:12px;background:#fff}
+.articles{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.article{background:#fff;padding:12px;border-radius:10px;border:1px solid var(--line);box-shadow:var(--shadow);line-height:1.5}
+footer{text-align:center;margin-top:28px;padding:18px;font-size:14px;color:var(--muted)}
+footer a{color:var(--muted);margin:0 8px}
+@media(max-width:760px){.articles{grid-template-columns:1fr}.chart-box{height:180px}}
+.small{font-size:13px;color:var(--muted)}
+</style>
+
+<!-- FIXED JSON-LD BASE (static fd.html URL) -->
+<script type="application/ld+json" id="jsonldPlaceHolder">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Fixed Deposit Calculator — FinanceCalculatorsHub",
+  "url": "https://financecalculatorshub.com/calculators/fd.html",
+  "description": "FD and Term Deposit calculator with maturity value, APY and interest breakdown.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://financecalculatorshub.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://financecalculatorshub.com/calculators/" },
+      { "@type": "ListItem", "position": 3, "name": "Fixed Deposit Calculator", "item": "https://financecalculatorshub.com/calculators/fd.html" }
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "USA — Certificate of Deposit (CD) Guides",
+  "itemListElement": [
+    {
+      "@type": "Article",
+      "position": 1,
+      "headline": "What is a Certificate of Deposit (CD) and how it differs from bank savings",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "Explains how Certificates of Deposit work, FDIC protection, fixed rates, and how CDs differ from savings accounts.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 2,
+      "headline": "How APY and compounding frequency affect CD returns",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "Explains APY, compounding frequency, and how different compounding schedules change effective yield.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 3,
+      "headline": "Choosing the right CD term: laddering vs single-term strategy",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "Covers laddering vs single CDs, reinvestment planning, and reducing interest-rate risk.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 4,
+      "headline": "Tax considerations for U.S. CD interest",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "Discusses tax rules for CD interest, IRA benefits, and municipal CD tax differences.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 5,
+      "headline": "Understanding early withdrawal penalties and how they affect your effective yield",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "Explains early withdrawal penalties, how they reduce effective yield, and penalty structures by term length.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 6,
+      "headline": "Brokered CDs vs bank-issued CDs: pros and cons",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "Compares brokered and bank CDs, covering call risk, liquidity, portability, and FDIC coverage.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 7,
+      "headline": "How to build a CD ladder for income and liquidity",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "A full guide to building a CD ladder, optimizing cash access, and reinvestment strategies.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 8,
+      "headline": "High-yield online banks and credit unions: where to find better CD rates",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "How to find the best CD rates using online banks and credit unions, including promo structures.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 9,
+      "headline": "Using CDs in retirement portfolios and conservative allocations",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "Explains CDs in retirement planning, capital preservation, and blending with bonds/TIPS.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 10,
+      "headline": "How inflation and real yield affect CD purchasing power",
+      "articleSection": "USA — Certificate of Deposit (CD) Guides",
+      "description": "Understanding nominal vs real CD yields, inflation impact, and long-term purchasing power.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    }
+  ]
+}
+</script>
+
+<!-- ===================== UK SCHEMA ===================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "UK — Fixed Rate Bond Guides",
+  "itemListElement": [
+    {
+      "@type": "Article",
+      "position": 1,
+      "headline": "What is a Fixed Rate Bond in the UK and how it compares to instant access accounts",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "Explains fixed rate bonds in the UK, access restrictions, and how they differ from easy-access products.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 2,
+      "headline": "How AER (Annual Equivalent Rate) and compounding work for UK bonds",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "A deep dive into AER, compounding frequency in UK bonds, and comparing advertised vs actual earnings.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 3,
+      "headline": "Choosing bond terms and dealing with inflation in the UK",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "Guidance on selecting bond maturities, inflation considerations, and timing strategies.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 4,
+      "headline": "Tax wrappers: ISAs, pensions and fixed bonds",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "How ISAs and pension wrappers can shelter fixed bond interest and boost net returns.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 5,
+      "headline": "Provider security: FSCS protection and building society considerations",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "Explains FSCS protection rules, building societies, and safety considerations for savers.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 6,
+      "headline": "How to compare fixed rate bonds across banks and building societies",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "Comparison tips for bond rates, term lengths, access rules, promo conditions, and AER accuracy.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 7,
+      "headline": "Laddering fixed rate bonds in a UK savings strategy",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "How to build and manage fixed rate bond ladders for consistent access and improved yield.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 8,
+      "headline": "Special bonds: notice accounts, callable bonds and promotional products",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "Overview of notice accounts, callable bonds, and promo-rate products with hidden conditions.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 9,
+      "headline": "Impact of UK base rate changes on fixed rate bond value",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "Explains how BoE rate changes affect bond value, reinvestment opportunities, and timing strategies.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 10,
+      "headline": "Using fixed rate bonds for goal-based saving (house deposits, education)",
+      "articleSection": "UK — Fixed Rate Bond Guides",
+      "description": "How to match bond maturity to savings goals like home deposits and education timelines.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    }
+  ]
+}
+</script>
+
+<!-- ===================== AUSTRALIA SCHEMA ===================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Australia — Term Deposit Guides",
+  "itemListElement": [
+    {
+      "@type": "Article",
+      "position": 1,
+      "headline": "What is a Term Deposit in Australia and how it differs from savings accounts",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "Explains term deposit structure, liquidity restrictions, and difference from savings accounts.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 2,
+      "headline": "How interest is calculated in Australian term deposits (and comparing annual vs. monthly credit)",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "Discusses credit frequency, compounding effect, and APY calculations for Australian term deposits.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 3,
+      "headline": "Term selection, notice periods and early withdrawal rules in Australia",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "Explains term selection, notice accounts, break penalties, and access limitations.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 4,
+      "headline": "Taxation of term deposit interest in Australia",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "Covers taxation rules for term deposit interest, assessable income, and superannuation treatment.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 5,
+      "headline": "How to shop for the best term deposit rates and find promotional deals",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "Tips for comparing term deposit offers, finding promos, and evaluating conditions.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 6,
+      "headline": "Laddering and cash flow planning with Australian term deposits",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "Explains laddering strategy to balance liquidity and improved yield in Australian markets.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 7,
+      "headline": "Deposit insurance and safety: APRA and authorised deposit-taking institutions",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "Discusses APRA regulation, ADI status, and FCS protection limits for deposits.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 8,
+      "headline": "Comparing term deposits with short-term government bonds and high-quality corporate paper",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "Compares term deposits with short-term bonds, corporate paper, and risk-return differences.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 9,
+      "headline": "Using term deposits for capital preservation during market uncertainty",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "Explains benefits of term deposits for stability during volatile periods.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 10,
+      "headline": "Strategies to maximize term deposit returns (promos, bundling, and negotiation)",
+      "articleSection": "Australia — Term Deposit Guides",
+      "description": "How to improve term deposit yield through negotiations, promos, and strategic splitting.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    }
+  ]
+}
+</script>
+
+<!-- ===================== INDIA SCHEMA ===================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "India — Fixed Deposit Guides",
+  "itemListElement": [
+    {
+      "@type": "Article",
+      "position": 1,
+      "headline": "What is an Indian Fixed Deposit (FD) and why investors use it",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "Explains what Indian FDs are, why they are popular, safety levels, and use-cases for different investors.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 2,
+      "headline": "Compounding frequency in Indian FDs and effective yield calculation",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "Explains quarterly, annual, and monthly compounding in Indian FDs and how they change effective returns.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 3,
+      "headline": "TDS, tax treatment and senior citizen rules for FD interest",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "Explains TDS, tax slabs, Form 15G/15H, and senior citizen FD benefits with practical examples.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 4,
+      "headline": "Choosing FD tenure: matching liquidity needs and rate environment",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "Guidance on selecting FD tenures, analyzing rate cycles, and balancing liquidity vs return.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 5,
+      "headline": "Bank FDs vs Company FDs vs Post Office FDs: risk and returns",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "Compares Bank vs Company vs Post Office FDs including risk levels, insurance, and returns.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 6,
+      "headline": "Premature withdrawal rules and penalties for Indian FDs",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "Explains FD breakage rules, penalty formulas, and when premature withdrawal is financially safe.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 7,
+      "headline": "How to ladder Indian FDs for regular income and liquidity",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "A full guide on designing an FD ladder for steady cashflow and flexibility across banks.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 8,
+      "headline": "Interest payout options: cumulative vs non-cumulative FDs",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "Compares cumulative vs non-cumulative FD structures, cashflow differences, and ROI calculations.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 9,
+      "headline": "Documentation, nomination and nomination transfer rules for FDs in India",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "Explains FD documentation, KYC, nomination rules, NRI FD variations, and inheritance processes.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    },
+    {
+      "@type": "Article",
+      "position": 10,
+      "headline": "Strategies to maximise FD yields: timing, promotions and bulk deposits",
+      "articleSection": "India — Fixed Deposit Guides",
+      "description": "Techniques to increase FD returns using promotions, timing strategies, and bulk-deposit negotiation.",
+      "author": {"@type": "Organization", "name": "FinanceCalculatorsHub"},
+      "publisher": {"@type": "Organization", "name": "FinanceCalculatorsHub"}
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://financecalculatorshub.com/#organization",
+  "name": "FinanceCalculatorsHub",
+  "url": "https://financecalculatorshub.com/",
+  "logo": "https://financecalculatorshub.com/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/",
+    "https://www.instagram.com/",
+    "https://www.linkedin.com/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://financecalculatorshub.com/#website",
+  "url": "https://financecalculatorshub.com/",
+  "name": "FinanceCalculatorsHub",
+  "publisher": {
+    "@id": "https://financecalculatorshub.com/#organization"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://financecalculatorshub.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://financecalculatorshub.com/calculators/fd.html#breadcrumb",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://financecalculatorshub.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Calculators",
+      "item": "https://financecalculatorshub.com/calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Fixed Deposit Calculator",
+      "item": "https://financecalculatorshub.com/calculators/fd.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a Fixed Deposit / Certificate of Deposit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Fixed Deposit or Certificate of Deposit is a financial product where you lock money for a fixed tenure in exchange for a guaranteed interest rate. It is safer than market-linked investments and ideal for capital preservation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is interest calculated in FD or CD?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Interest is calculated based on the deposit amount, interest rate, tenure, and compounding frequency. Monthly, quarterly, or annual compounding yields different maturity amounts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is APY or AER in deposit products?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "APY (Annual Percentage Yield) or AER (Annual Equivalent Rate) represents the effective annual return after compounding. It helps compare different bank offers accurately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are FD/CD deposits safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, most FD/CD products are insured by government-backed deposit insurance schemes such as FDIC in the USA, FSCS in the UK, FCS in Australia, and DICGC in India, subject to limits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there penalties for early withdrawal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Banks typically charge an early withdrawal penalty which may reduce earned interest or in some cases cut into principal for very early withdrawals."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Fixed Deposit / CD / Term Deposit Calculator",
+  "url": "https://financecalculatorshub.com/calculators/fd.html",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "All",
+  "softwareVersion": "2.0",
+  "description": "Advanced Fixed Deposit, Certificate of Deposit, and Term Deposit calculator supporting USA, UK, Australia, India with maturity charts, APY computation, and PDF export.",
+  "author": {
+    "@id": "https://financecalculatorshub.com/#organization"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+</head>
+<body>
+<div class="container">
+<header class="header">
+  <div class="logo">FC</div>
+  <div>
+    <div class="title">FinanceCalculatorsHub</div>
+    <div class="sub" id="headerSub">Fixed Deposit Calculator &mdash; Maturity &amp; APY</div>
+  </div>
+</header>
+
+<!-- VISIBLE BREADCRUMB (STATIC) -->
+<nav style="margin-top:12px;color:var(--muted);font-size:14px" id="breadcrumb">
+  Home &raquo; Calculators &raquo; Fixed Deposit Calculator
+</nav>
+
+<section class="grid">
+  <div class="card">
+    <h2 id="pageH1">Fixed Deposit Calculator</h2>
+    <p style="color:var(--muted)" id="lead">
+      Calculate maturity value, effective APY, and interest breakdown for fixed-term deposits. Supports CD (USA), Fixed Rate Bond (UK), Term Deposit (AUS) and FD (India). Charts and PDF report included.
+    </p>
+
+    <label>Country / Product</label>
+    <select id="country" class="input" aria-label="Select country/product">
+      <option value="USA" data-currency="USD" selected>USA &mdash; Certificate of Deposit (CD)</option>
+      <option value="UK" data-currency="GBP">UK &mdash; Fixed Rate Bond</option>
+      <option value="AUS" data-currency="AUD">Australia &mdash; Term Deposit</option>
+      <option value="IND" data-currency="INR">India &mdash; Fixed Deposit</option>
+    </select>
+
+    <label style="margin-top:12px">Principal Amount</label>
+    <input id="principal" class="input" type="number" value="10000"/>
+
+    <label style="margin-top:12px">Interest Rate (annual %)</label>
+    <input id="rate" class="input" type="number" step="0.001" value="5"/>
+
+    <label style="margin-top:12px">Tenure (Years)</label>
+    <input id="yrs" class="input" type="number" step="0.25" value="1"/>
+
+    <label style="margin-top:12px">Compounding Frequency</label>
+    <select id="freq" class="input">
+      <option value="annually">Annually</option>
+      <option value="semiannual">Semi-Annually</option>
+      <option value="quarterly">Quarterly</option>
+      <option value="monthly" selected>Monthly</option>
+      <option value="daily">Daily</option>
+    </select>
+
+    <div class="row">
+      <button id="calc" class="btn-main">Calculate</button>
+      <button id="reset" class="btn-ghost">Reset</button>
+      <button id="pdf" class="btn-ghost">Download PDF</button>
+    </div>
+
+    <div class="metrics">
+      <div class="metric" id="maturityBox">Maturity Value —</div>
+      <div class="metric" id="apyBox">Effective APY —</div>
+    </div>
+
+    <div class="table-box" id="tblWrap" aria-hidden="true">
+      <table>
+        <thead><tr><th>Period</th><th style="text-align:right">Start</th><th style="text-align:right">Interest</th><th style="text-align:right">End</th></tr></thead>
+        <tbody id="tblBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <aside class="side-card">
+    <div class="summary">
+      <strong>Snapshot</strong>
+      <p id="snap" style="color:var(--muted)">Enter values and calculate to view maturity breakdown and charts.</p>
+      <p class="small">Use compounding frequency to model bank APY correctly. For US CDs, consider early withdrawal penalties (not modelled here).</p>
+    </div>
+
+    <div class="chart-box"><canvas id="lineChart"></canvas></div>
+    <div class="chart-box"><canvas id="pieChart"></canvas></div>
+  </aside>
+</section>
+
+<!--
+  NOTE:
+  Articles sections (USA/UK/AUS/IND) and footer follow in Part 3 & Part 4.
+  Now the corrected JS (with canonical & breadcrumb fixes) is included below.
+-->
+
+<!-- JS LOGIC (Corrected) -->
+<script>
+(function(){
+'use strict';
+/* Elements */
+const $ = id => document.getElementById(id);
+const country = $('country'), principal = $('principal'), rate = $('rate'), yrs = $('yrs'), freq = $('freq');
+const calcBtn = $('calc'), resetBtn = $('reset'), pdfBtn = $('pdf');
+const maturityBox = $('maturityBox'), apyBox = $('apyBox'), snap = $('snap');
+const tblBody = $('tblBody'), tblWrap = $('tblWrap');
+const pageTitle = $('pageTitle'), metaDesc = $('metaDesc'), canonicalLink = $('canonicalLink');
+const headerSub = $('headerSub'), pageH1 = $('pageH1'), lead = $('lead'), breadcrumb = $('breadcrumb');
+const jsonldEl = $('jsonldPlaceHolder');
+
+let lineChart=null, pieChart=null;
+
+/* Country metadata */
+const COUNTRY_META = {
+  USA: {
+    title: "Certificate of Deposit (CD) Calculator — FinanceCalculatorsHub",
+    description: "CD calculator for U.S. savers with APY, maturity value, interest breakdown and PDF report.",
+    h1: "Certificate of Deposit (CD) Calculator",
+    sub: "Calculate CD maturity value, APY and interest breakdown.",
+    // keep canonical fields for reference but we WILL NOT set them as page canonical
+    canonical: "https://financecalculatorshub.com/calculators/fd.html",
+    currency: "USD",
+    articlesId: "articles-usa"
+  },
+  UK: {
+    title: "Fixed Rate Bond Calculator — FinanceCalculatorsHub",
+    description: "Fixed Rate Bond calculator with effective AER, maturity projection and interest breakdown for UK savers.",
+    h1: "Fixed Rate Bond Calculator",
+    sub: "Compute AER and maturity for fixed rate bonds in the UK.",
+    canonical: "https://financecalculatorshub.com/calculators/fd.html",
+    currency: "GBP",
+    articlesId: "articles-uk"
+  },
+  AUS: {
+    title: "Term Deposit Calculator — FinanceCalculatorsHub",
+    description: "Term Deposit calculator for Australian savers with maturity value, APY and detailed breakdown.",
+    h1: "Term Deposit Calculator",
+    sub: "Estimate term deposit maturity and effective yield in Australia.",
+    canonical: "https://financecalculatorshub.com/calculators/fd.html",
+    currency: "AUD",
+    articlesId: "articles-au"
+  },
+  IND: {
+    title: "Fixed Deposit Calculator — FinanceCalculatorsHub",
+    description: "Fixed Deposit (FD) calculator for India showing maturity value, interest breakdown and tax-aware notes.",
+    h1: "Fixed Deposit Calculator",
+    sub: "Calculate FD maturity, interest payouts and effective rate for Indian FDs.",
+    canonical: "https://financecalculatorshub.com/calculators/fd.html",
+    currency: "INR",
+    articlesId: "articles-in"
+  }
+};
+
+/* Formatting */
+function fmtCur(c){
+  try { return new Intl.NumberFormat('en-US',{style:'currency',currency:c}); }
+  catch(e){ return {format:v=>c+' '+Number(v).toFixed(2)}; }
+}
+
+/* Compounding helpers */
+function freqToN(f){
+  switch(f){
+    case 'annually': return 1;
+    case 'semiannual': return 2;
+    case 'quarterly': return 4;
+    case 'monthly': return 12;
+    case 'daily': return 365;
+    default: return 12;
+  }
+}
+
+/* Compute FD/CD maturity with compounding */
+function computeMaturity(P, annualRatePercent, years, freqKey){
+  const n = freqToN(freqKey);
+  const r = annualRatePercent/100;
+  // Effective periodic rate
+  const periodRate = r / n;
+  // number of periods may be fractional if years not integer: handle fractional by using total periods = years * n
+  const periods = Math.round(years * n);
+  // Compute future value using compound interest formula: FV = P * (1 + r/n)^(n*t)
+  const fv = P * Math.pow(1 + periodRate, periods);
+  const gain = fv - P;
+
+  // Build period-by-period table (grouped by period index; show end-of-period balances)
+  const yearly = [];
+  let balance = P;
+  for(let i=1;i<=periods;i++){
+    const start = balance;
+    const interest = start * periodRate;
+    balance = start + interest;
+    yearly.push({
+      period: i,
+      start: Number(start.toFixed(2)),
+      interest: Number(interest.toFixed(2)),
+      end: Number(balance.toFixed(2))
+    });
+  }
+  // Compute effective APY (compounded)
+  const apy = Math.pow(1 + r / n, n) - 1;
+  return {fv: Number(fv.toFixed(2)), gain: Number(gain.toFixed(2)), apy: Number((apy*100).toFixed(6)), periods, yearly};
+}
+
+/* Render table */
+function renderTable(list, c){
+  tblBody.innerHTML = '';
+  // Show aggregate rows grouped by year (if many periods, show per period label)
+  list.forEach(row=>{
+    tblBody.innerHTML += `<tr>
+      <td>${row.period}</td>
+      <td style="text-align:right">${fmtCur(c).format(row.start)}</td>
+      <td style="text-align:right">${fmtCur(c).format(row.interest)}</td>
+      <td style="text-align:right">${fmtCur(c).format(row.end)}</td>
+    </tr>`;
+  });
+  tblWrap.removeAttribute('aria-hidden');
+}
+
+/* Build charts */
+function buildCharts(res, currency){
+  const labels = res.yearly.map(r=>'P'+r.period);
+  const balances = res.yearly.map(r=>r.end);
+  const interests = res.yearly.map(r=>r.interest);
+
+  if(lineChart) lineChart.destroy();
+  lineChart = new Chart(document.getElementById('lineChart'), {
+    type:'line',
+    data:{labels, datasets:[{label:'End Balance', data:balances, borderColor:'#0f62fe', backgroundColor:'rgba(15,98,254,0.1)', fill:true, tension:0.3}]},
+    options:{plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}}}
+  });
+
+  if(pieChart) pieChart.destroy();
+  const principalAmt = Number(principal.value) || 0;
+  pieChart = new Chart(document.getElementById('pieChart'), {
+    type:'pie',
+    data:{labels:['Principal','Interest'], datasets:[{data:[principalAmt, res.gain], backgroundColor:['#0f62fe','#00bfa6']}]},
+    options:{plugins:{legend:{position:'bottom'}}}
+  });
+}
+
+/* Update head, h1 and meta depending on selected country
+   NOTE: We do NOT change canonical or breadcrumb here (both are static).
+*/
+function updateHeadForCountry(code){
+  const meta = COUNTRY_META[code] || COUNTRY_META.IND;
+  pageTitle.textContent = meta.title;
+  document.title = meta.title;
+  metaDesc.setAttribute('content', meta.description);
+  // ? Do NOT change canonical - keep it fixed to fd.html
+  // canonicalLink.setAttribute('href', meta.canonical); // removed intentionally
+
+  headerSub.innerHTML = meta.sub;
+  pageH1.textContent = meta.h1;
+  lead.textContent = meta.description;
+
+  // Keep visible breadcrumb STATIC (do not change it per country)
+  breadcrumb.innerHTML = "Home &raquo; Calculators &raquo; Fixed Deposit Calculator";
+
+  // Update JSON-LD minimal page info BUT always pointing to fd.html (static)
+  const jsonld = {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"WebPage","@id":"https://financecalculatorshub.com/calculators/fd.html#webpage","url":"https://financecalculatorshub.com/calculators/fd.html","name":meta.h1,"description":meta.description,"inLanguage":"en"},
+      {"@type":"Organization","@id":"https://financecalculatorshub.com/#organization","name":"FinanceCalculatorsHub","url":"https://financecalculatorshub.com/"},
+      {"@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://financecalculatorshub.com/"},
+        {"@type":"ListItem","position":2,"name":"Calculators","item":"https://financecalculatorshub.com/calculators/"},
+        {"@type":"ListItem","position":3,"name":"Fixed Deposit Calculator","item":"https://financecalculatorshub.com/calculators/fd.html"}
+      ]}
+    ]
+  };
+  jsonldEl.textContent = JSON.stringify(jsonld, null, 2);
+
+  // Update visible currency (formatter)
+  const selOpt = country.options[country.selectedIndex];
+  const currency = selOpt.dataset.currency || meta.currency;
+  // store currency on element to use for formatting
+  country.dataset.currencyActive = currency;
+
+  // show/hide article sections to focus user
+  ['articles-usa','articles-uk','articles-au','articles-in'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(id === meta.articlesId) el.style.display = 'grid';
+    else el.style.display = 'none';
+  });
+}
+
+/* Primary update function */
+function updateAll(){
+  const P = Number(principal.value) || 0;
+  const r = Number(rate.value) || 0;
+  const y = Number(yrs.value) || 0;
+  const f = freq.value;
+  const selOpt = country.options[country.selectedIndex];
+  const currency = selOpt.dataset.currency || country.dataset.currencyActive || 'USD';
+  if(P <= 0 || y <= 0){ alert("Enter valid principal and tenure"); return; }
+  const res = computeMaturity(P, r, y, f);
+  maturityBox.textContent = "Maturity Value " + fmtCur(currency).format(res.fv);
+  apyBox.textContent = "Effective APY " + (res.apy).toFixed(6) + "%";
+
+  snap.innerHTML = `Principal: ${fmtCur(currency).format(P)}<br>Rate: ${r}% &middot; ${y} years &middot; ${freq.options[freq.selectedIndex].textContent}`;
+
+  renderTable(res.yearly, currency);
+  buildCharts(res, currency);
+
+  // save for PDF
+  window.__FD__ = {inputs:{P,r,y,f,currency}, result:res};
+}
+
+/* Reset */
+resetBtn.addEventListener('click', ()=>{
+  principal.value=10000; rate.value=5; yrs.value=1; freq.value='monthly'; country.value='USA';
+  maturityBox.textContent='Maturity Value —'; apyBox.textContent='Effective APY —';
+  tblBody.innerHTML=''; tblWrap.setAttribute('aria-hidden','true');
+  snap.textContent='Enter values and calculate to view maturity breakdown and charts.';
+  if(lineChart) lineChart.destroy(); if(pieChart) pieChart.destroy();
+  updateHeadForCountry(country.value);
+});
+
+/* Country change event */
+country.addEventListener('change', ()=>{
+  updateHeadForCountry(country.value);
+  // update currency display if needed
+  updateAll();
+});
+
+/* Initial load */
+window.onload = function(){
+  // Ensure canonical is fixed (reinforce)
+  if(canonicalLink) canonicalLink.setAttribute('href', "https://financecalculatorshub.com/calculators/fd.html");
+  updateHeadForCountry(country.value);
+  // Hide non-active article sections initially
+  ['articles-usa','articles-uk','articles-au','articles-in'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(el.id !== COUNTRY_META[country.value].articlesId) el.style.display = 'none';
+  });
+  updateAll();
+};
+
+/* Wire calc */
+calcBtn.addEventListener('click', updateAll);
+
+/* PDF generation (similar style to lumpsum) */
+pdfBtn.addEventListener('click', ()=>{
+  if(!window.__FD__){ alert("Calculate first"); return; }
+  const { inputs, result } = window.__FD__;
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({unit:'pt',format:'a4'});
+  const margin = 36;
+  let y = margin;
+  const pageW = pdf.internal.pageSize.getWidth();
+
+  function fmt(v){ return new Intl.NumberFormat('en-US',{style:'currency',currency:inputs.currency}).format(v); }
+
+  pdf.setFontSize(16);
+  pdf.text("FinanceCalculatorsHub - FD / CD Report", margin, y);
+  pdf.setFontSize(10);
+  const ts = new Date().toLocaleString();
+  pdf.text("Generated: "+ts, margin, y+16);
+  pdf.text("Product: "+COUNTRY_META[country.value].h1, pageW-margin, y+16, {align:'right'});
+  y+=34;
+
+  pdf.setFontSize(11);
+  pdf.text("Investment Summary", margin, y);
+  y+=14;
+  function row(l,v){ pdf.text(l, margin, y); pdf.text(v, pageW-margin-140, y, {align:'right'}); y+=12; }
+  row("Principal", fmt(inputs.P));
+  row("Annual Rate (%)", inputs.r+"%");
+  row("Tenure", inputs.y+" years");
+  row("Compounding", inputs.f);
+  row("Maturity Value", fmt(result.fv));
+  row("Total Interest", fmt(result.gain));
+  row("Effective APY", result.apy+"%");
+
+  y+=10;
+
+  try{
+    const img1 = document.getElementById('lineChart').toDataURL('image/png',1.0);
+    const img2 = document.getElementById('pieChart').toDataURL('image/png',1.0);
+    const cw = (pageW - margin*2 - 12)/2;
+    const ch = 150;
+    pdf.addImage(img2,'PNG',margin,y,cw,ch);
+    pdf.addImage(img1,'PNG',margin+cw+12,y,cw,ch);
+    y+=ch+12;
+  }catch(e){ y+=12; }
+
+  const head=[['Period','Start','Interest','End']];
+  const body = result.yearly.map(r=>[
+    r.period, fmt(r.start), fmt(r.interest), fmt(r.end)
+  ]);
+  pdf.autoTable({
+    startY:y,
+    head:head,
+    body:body,
+    styles:{fontSize:9,cellPadding:6},
+    didParseCell:function(d){
+      if(d.section==='body'){
+        d.cell.styles.fillColor = d.row.index%2===0?[250,250,250]:[240,240,240];
+      }
+    },
+    theme:'striped',
+    headStyles:{fillColor:[245,245,245]},
+    margin:{left:margin,right:margin}
+  });
+  // Add NOTE at bottom of PDF
+y = pdf.lastAutoTable.finalY + 24; // spacing
+pdf.setFontSize(9);
+pdf.setTextColor(120);
+pdf.text(
+  "NOTE: This is an estimated calculation. Actual FD/CD/Term Deposit values may vary based on bank rules, compounding method, taxes, and penalties.",
+  margin,
+  y
+);
+  const filename = (COUNTRY_META[country.value].h1.replace(/\s+/g,'_')) + "_Report.pdf";
+  pdf.save(filename);
+});
+})();
+</script>
+<!-- ======== USA ARTICLES (10) ======== -->
+<section id="articles-usa" class="articles" aria-label="USA — Certificate of Deposit (CD) Guides">
+  <h3>USA &mdash; Certificate of Deposit (CD) Guides</h3>
+
+  <article class="article">
+    <h4>What is a Certificate of Deposit (CD) and how it differs from bank savings</h4>
+    <p>
+      A Certificate of Deposit (CD) is a time deposit product offered by U.S. banks and credit unions where you deposit a fixed sum for a predetermined term and receive a guaranteed interest rate. Unlike a regular savings account which allows frequent withdrawals and typically pays lower interest, CDs lock funds for the chosen period &mdash; commonly 1 month to 5 years or even longer &mdash; in exchange for a higher fixed rate. CDs may be issued with cumulative interest, meaning interest compounds periodically, or with simple interest payments. Federal Deposit Insurance Corporation (FDIC) coverage protects CDs up to limits per depositor per bank, making them a low-risk option for capital preservation and modest yield. This guide helps savers choose CD terms, understand early withdrawal penalties, and match a CD strategy to cash flow needs.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>How APY and compounding frequency affect CD returns</h4>
+    <p>
+      APY (Annual Percentage Yield) accounts for compounding and is the most practical rate to compare CDs. Nominal APR does not include compounding; APY does. When a bank quotes monthly compounding vs. daily compounding, the effective APY will be slightly higher for more frequent compounding at the same nominal rate. For example, a 5% nominal rate compounded monthly yields a slightly higher APY than the same rate compounded annually. Our calculator models compounding frequencies so you can see how the principal grows period-by-period and the final maturity value. Understanding APY ensures you compare offers accurately across institutions.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Choosing the right CD term: laddering vs single-term strategy</h4>
+    <p>
+      Term selection is critical. A single long-term CD locks in a rate &mdash; beneficial if rates fall &mdash; but exposes you to opportunity cost if rates rise. Laddering splits funds across staggered maturities (e.g., 1-year, 2-year, 3-year) so you periodically have CDs maturing and can reinvest at prevailing rates. This reduces reinvestment risk and smooths interest-rate exposure. Laddering can also provide predictable liquidity while boosting average yield versus keeping all capital in short-term deposits. We show laddering benefits by comparing maturity profiles and rolling strategies.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Tax considerations for U.S. CD interest</h4>
+    <p>
+      Interest from CDs is typically taxable as ordinary income in the year it is paid or credited, even if you don't withdraw it. In taxable accounts, CD interest increases your annual taxable income. Tax-advantaged accounts like IRAs can shelter CD interest from immediate tax where applicable, allowing tax-deferred growth. For municipal CDs (rare) or special structures, tax treatment may differ. Always consult a tax advisor for complex situations. Our calculator shows gross interest and effective APY &mdash; you should account for taxes to estimate post-tax returns.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Understanding early withdrawal penalties and how they affect your effective yield</h4>
+    <p>
+      Most CDs impose penalties for early withdrawals, often expressed as a number of months' interest (e.g., 3 months for short-term CDs, 6&mdash;12 months for longer terms). Penalties reduce the effective yield and can even cut principal if you withdraw shortly after opening. For laddered CDs, penalties may be avoided by using only matured CDs to meet liquidity needs. When comparing offers, always factor in the penalty structure &mdash; our calculator provides pre-withdrawal maturity values so you can simulate early withdrawal scenarios manually.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Brokered CDs vs bank-issued CDs: pros and cons</h4>
+    <p>
+      Brokered CDs are sold through brokerage firms and may offer higher yields or access to unusual maturities, but they can trade in the secondary market and carry market risk if sold before maturity. Bank-issued CDs are held directly at the bank. Both types are often FDIC-insured if issued by an FDIC member bank, subject to deposit insurance limits. Brokered CDs may be callable (issuer can redeem early), which changes the risk profile. This article discusses liquidity, portability, call provisions, and tax reporting differences so you can decide which is suitable.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>How to build a CD ladder for income and liquidity</h4>
+    <p>
+      A CD ladder balances yield and liquidity. To build one, divide capital into equal parts and buy CDs with staggered maturities (e.g., 1&mdash;5 years). Each year a CD matures, you either cash it or reinvest in a new long-term CD, maintaining the ladder. This technique benefits savers who want steady access to funds while earning higher rates than short-term deposits. We provide examples and calculators to simulate different ladder sizes, intervals, and reinvestment rules.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>High-yield online banks and credit unions: where to find better CD rates</h4>
+    <p>
+      Online banks and some credit unions often offer higher CD rates due to lower overhead. Comparison-shopping across FDIC-insured online institutions can yield meaningful rate improvement. Beware of account minimums, penalties, and promotion terms (e.g., teaser rates may apply only for limited deposits). Credit unions require membership but often have competitive products. Check whether promotional rates apply only to new customers and confirm insurance coverage. Our calculator helps you compare net maturity values across rate quotes.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Using CDs in retirement portfolios and conservative allocations</h4>
+    <p>
+      CDs can play a defensive role in retirement portfolios as secure income instruments. Allocating a portion of a retirement account to CDs provides capital preservation and predictable income. However, long-term investors should balance CDs' lower yields versus inflation risk. Mixing CDs, short-term bonds, and inflation-protected securities (TIPS) helps manage purchasing-power risk while preserving principal. This guide highlights appropriate allocation percentages and laddering variations for retirement use-cases.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>How inflation and real yield affect CD purchasing power</h4>
+    <p>
+      Nominal CD yields must be considered against inflation. The real yield (nominal yield minus inflation) indicates purchasing power growth or erosion. When inflation exceeds the nominal rate, the real return can be negative even though the nominal balance grows. Consider short-term CDs with higher real yields or diversify into inflation-resilient assets if preserving purchasing power is a priority. Our calculator outputs nominal maturity values and effective APY &mdash; pair that with expected inflation to estimate real returns.
+    </p>
+  </article>
+
+</section>
+
+
+
+<!-- ======== UK ARTICLES (10) ======== -->
+<section id="articles-uk" class="articles" aria-label="UK — Fixed Rate Bond Guides">
+  <h3>UK &mdash; Fixed Rate Bond Guides</h3>
+
+  <article class="article">
+    <h4>What is a Fixed Rate Bond in the UK and how it compares to instant access accounts</h4>
+    <p>
+      In the UK a fixed rate bond is a time deposit where savers lock funds for a set term in return for a fixed interest rate. Unlike easy-access or notice accounts, you cannot withdraw without penalty during the term. Fixed rate bonds are commonly offered by high-street banks, challenger banks and building societies. They are useful for savers looking to lock in rates and avoid market volatility. This article covers benefits, risks, and the account features to check before committing.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>How AER (Annual Equivalent Rate) and compounding work for UK bonds</h4>
+    <p>
+      AER (Annual Equivalent Rate) reflects the effect of compounding and is used in the UK to compare savings products. If interest is paid annually, AER equals the nominal rate; for monthly or quarterly interest, AER will be higher than the nominal figure. When comparing fixed rate bonds, use AER to judge true earnings. Our calculator computes effective APY/AER based on compounding frequency so UK savers can compare like-for-like.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Choosing bond terms and dealing with inflation in the UK</h4>
+    <p>
+      Selecting term length depends on interest-rate outlook and liquidity needs. Locking into a bond when rates are high can be beneficial if rates fall, but you may miss out if rates rise. Consider laddering or staggered bond purchases to mitigate timing risk. Also weigh inflation expectations &mdash; high inflation can erode real returns, so match your term to inflation risk tolerance and consider inflation-hooked alternatives if appropriate.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Tax wrappers: ISAs, pensions and fixed bonds</h4>
+    <p>
+      Using tax wrappers like ISAs (Individual Savings Accounts) or pensions can make fixed rate bonds more tax-efficient. Interest within an ISA is tax-free, making it an attractive home for fixed rate bonds. Pensions offer tax relief but have access restrictions. Assess whether to hold a bond in a tax wrapper to maximize after-tax yield. This article compares scenarios and provides examples of how tax wrappers affect take-home returns.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Provider security: FSCS protection and building society considerations</h4>
+    <p>
+      The Financial Services Compensation Scheme (FSCS) protects deposits up to specified limits per authorised firm. Ensure the provider is FCA-authorised and check whether the limit applies per institution (parent company) to avoid coverage surprises. Building societies have mutual ownership structures that may influence rates and risk profiles. This guide helps navigate protection rules and structural differences across providers.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>How to compare fixed rate bonds across banks and building societies</h4>
+    <p>
+      Compare by AER, minimum deposit, term, early withdrawal penalties and whether interest is paid monthly or on maturity. Also check for bonus rates requiring minimum new money or limited-time promotions. Beware of misleading marketing that focuses only on headline rates without disclosing compounding frequency or qualifying conditions. Use our calculator to compute true maturity values across competing offers.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Laddering fixed rate bonds in a UK savings strategy</h4>
+    <p>
+      Laddering provides regular access to cash and the ability to reinvest at changing rates. For example, split capital into five bonds with staggered maturities to improve liquidity while capturing higher rates for longer-term tranches. The guide demonstrates ladder examples and compares returns with a single-term approach to illustrate trade-offs.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Special bonds: notice accounts, callable bonds and promotional products</h4>
+    <p>
+      Some products include notice periods (you must give notice before withdrawal), while others are callable or have promotional rates with conditions. Callable bonds can be redeemed by the issuer early, which reduces upside if rates fall. Promotional products may have limited availability or require new funds. Understand the product terms thoroughly before locking savings into a fixed bond.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Impact of UK base rate changes on fixed rate bond value</h4>
+    <p>
+      Bank of England base rate changes influence new fixed bond rates and secondary market valuations. If base rates rise after you lock a bond, new offers may be more attractive; conversely, if rates fall, locked bonds become relatively valuable. Fixed bonds protect savers who expect rates to decline, but they carry opportunity cost when rates rise. This article provides historical context and decision rules for term selection.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Using fixed rate bonds for goal-based saving (house deposits, education)</h4>
+    <p>
+      Fixed bonds are well-suited to goal-based saving with defined time horizons (e.g., deposit for house, tuition payments). Align bond maturities with payment dates to reduce reinvestment risk and ensure availability. If your goal date is flexible, consider shorter-term bonds or a ladder to keep options open. Examples illustrate how to match bond terms to common savings goals.
+    </p>
+  </article>
+
+</section>
+<!-- ======== AUSTRALIA ARTICLES (10) ======== -->
+<section id="articles-au" class="articles" aria-label="Australia — Term Deposit Guides">
+  <h3>Australia &mdash; Term Deposit Guides</h3>
+
+  <article class="article">
+    <h4>What is a Term Deposit in Australia and how it differs from savings accounts</h4>
+    <p>
+      In Australia, term deposits are fixed-term investment products where money is locked for a selected period. Major banks, smaller banks and non-bank lenders offer term deposits with varying rates and minimum deposit requirements. Unlike transaction or savings accounts, term deposits typically offer higher rates in return for reduced liquidity. They are often used by conservative savers, retirees and those preserving capital for near-term goals.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>How interest is calculated in Australian term deposits (and comparing annual vs. monthly credit)</h4>
+    <p>
+      Interest may be credited monthly, annually or on maturity. Interest credited more frequently increases effective yield if it compounds into the principal. The Annual Percentage Yield (APY) reflects compounding and is the best comparison metric. This article explains credit schedules and how they affect effective returns in Australia.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Term selection, notice periods and early withdrawal rules in Australia</h4>
+    <p>
+      Term lengths range from 30 days to several years. Early withdrawal rules vary; some providers allow breaks with reduced interest while others impose forfeiture. Notice accounts (which require a notice period) are alternative liquidity options. Compare terms, penalties and account access carefully. Our calculator helps simulate early break scenarios by approximating interest forfeitures.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Taxation of term deposit interest in Australia</h4>
+    <p>
+      Interest from term deposits is generally taxed as ordinary income in Australia. For individuals, interest is included in assessable income and taxed at marginal rates. Negative gearing or special offsets do not usually apply. Superannuation and certain tax-advantaged accounts may shelter interest; consult a tax professional for specifics. This article outlines common tax rules and illustrative after-tax return calculations.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>How to shop for the best term deposit rates and find promotional deals</h4>
+    <p>
+      Compare rates across major banks, challenger banks and online-only lenders. Promotional rates can be attractive but may have conditions (e.g., new money only). Use comparison tools, read fine print for minimums and withdrawal rules, and prefer institutions with clear product terms. This guide includes a checklist to evaluate offers and suggests reputable comparison sites.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Laddering and cash flow planning with Australian term deposits</h4>
+    <p>
+      Laddering with term deposits gives regular maturing tranches and reinvestment opportunities. Set ladder rungs to align with upcoming expenses or to capture changing rates. Example ladders and reinvestment rules are illustrated so savers can design an income schedule or emergency buffer using term deposits.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Deposit insurance and safety: APRA and authorised deposit-taking institutions</h4>
+    <p>
+      The Australian Prudential Regulation Authority (APRA) supervises authorised deposit-taking institutions (ADIs). The Financial Claims Scheme (FCS) provides protection for deposits up to specified limits per account-holder per ADI. Check provider status and limits to ensure full coverage when allocating larger sums across institutions.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Comparing term deposits with short-term government bonds and high-quality corporate paper</h4>
+    <p>
+      Term deposits compete with short-term government bonds and high-quality corporate debt for conservative allocations. While government bonds may trade and offer liquidity, term deposits provide guaranteed principal and predictable returns. Compare risk, liquidity and after-tax returns to determine the best match for your objectives.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Using term deposits for capital preservation during market uncertainty</h4>
+    <p>
+      During equity market volatility, term deposits can preserve capital while locking attractive short-term yields. They are suitable for emergency funds, near-term savings and portions of retirement income. This article explains how to size term deposit allocations based on risk tolerance and time horizon.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Strategies to maximize term deposit returns (promos, bundling, and negotiation)</h4>
+    <p>
+      Look for promotional rates, bundle deposits across family members, or negotiate with relationship managers for better rates if you hold significant balances. Consider split deposits across ADIs to stay within protection limits and to take advantage of higher rates at challenger banks. Practical negotiation tips and examples are provided.
+    </p>
+  </article>
+
+</section>
+
+
+
+<!-- ======== INDIA ARTICLES (10) ======== -->
+<section id="articles-in" class="articles" aria-label="India — Fixed Deposit Guides">
+  <h3>India &mdash; Fixed Deposit Guides</h3>
+
+  <article class="article">
+    <h4>What is an Indian Fixed Deposit (FD) and why investors use it</h4>
+    <p>
+      Fixed Deposits (FDs) in India are one of the most common retail saving instruments provided by banks and NBFCs. Investors deposit a lump sum for a fixed tenure and receive a guaranteed interest rate. FDs are popular for safety, predictable returns and simplicity. They are often used for emergency funds, short-term savings and conservative allocations. Interest rates vary by tenor and institution; senior citizens frequently receive higher rates.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Compounding frequency in Indian FDs and effective yield calculation</h4>
+    <p>
+      Indian banks typically credit interest quarterly or annually; some credit monthly. Compounding frequency affects the effective yield; quarterly compounding will slightly increase the effective annual return compared to annual simple interest. Use effective-rate calculations to compare offers and determine the true maturity amount for a given nominal rate and tenure.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>TDS, tax treatment and senior citizen rules for FD interest</h4>
+    <p>
+      Interest from FDs is taxable as per the investor's income-tax slab. Banks deduct TDS (Tax Deducted at Source) on interest above a threshold unless the depositor submits Form 15G/15H or has lower/no-tax liability. Senior citizens may have additional benefits like higher interest rates and tax-exemption schemes under certain government bonds. This article explains TDS rules, how to claim refunds, and how to estimate post-tax maturity values.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Choosing FD tenure: matching liquidity needs and rate environment</h4>
+    <p>
+      FD tenures range from 7 days to 10 years in India. Choose tenure based on when you need the funds and your view on interest-rate movement. Shorter tenures offer liquidity but may have lower rates; longer tenures lock rates but reduce flexibility. Laddering is commonly used to maintain liquidity while capturing higher longer-tenor rates.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Bank FDs vs Company FDs vs Post Office FDs: risk and returns</h4>
+    <p>
+      Company FDs (corporate deposits) often offer higher rates than bank FDs but carry higher credit risk and are not covered by deposit insurance like bank FDs. Post Office FDs are government-backed and ideal for conservative savers, though rates may differ. Evaluate credit ratings, insurer coverage, and liquidity before choosing corporate or bank products.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Premature withdrawal rules and penalties for Indian FDs</h4>
+    <p>
+      Premature withdrawal rules vary by lender; penalties may include reduced rate of interest or forfeiture of a portion of interest. Some FDs allow partial withdrawal; others require full break. Understand the penalty formula and calculate break-even points if you anticipate a chance of needing early access.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>How to ladder Indian FDs for regular income and liquidity</h4>
+    <p>
+      Laddering across multiple FDs with staggered maturities provides recurring cashflows and allows reinvestment at new rates. Example ladder structures for monthly or quarterly income are provided, with calculations showing expected maturity and reinvestment gains under different rate scenarios.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Interest payout options: cumulative vs non-cumulative FDs</h4>
+    <p>
+      Cumulative (compounding) FDs reinvest interest, paying a lump sum at maturity; non-cumulative FDs pay periodic interest (monthly/quarterly). Choose cumulative FDs for capital accumulation, and non-cumulative for regular income streams. This article explains the trade-offs and which investor types each suits.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Documentation, nomination and nomination transfer rules for FDs in India</h4>
+    <p>
+      Proper documentation and nomination reduce administrative friction during maturity or on the death of the depositor. Banks require KYC documents, PAN, and nomination details. NRI FDs have additional pathways (NRE/NRO), repatriation rules, and tax implications. This guide covers paperwork and practical steps to manage FD holdings.
+    </p>
+  </article>
+
+  <article class="article">
+    <h4>Strategies to maximise FD yields: timing, promotions and bulk deposits</h4>
+    <p>
+      Look for periodic promotions, use senior-citizen advantages if applicable, negotiate better rates for large deposits, and spread funds across banks to stay within insurance limits. We also discuss aligning deposit timing to capture higher advertised rates and using short-term instruments during rising rate cycles.
+    </p>
+  </article>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  &copy; FinanceCalculatorsHub &mdash; Smart finance tools &mdash;
+  <a href="/privacy.html">Privacy</a> &middot;
+  <a href="/terms.html">Terms</a>
+</footer>
+
+</div> <!-- END CONTAINER -->
+
+</body>
+</html>
