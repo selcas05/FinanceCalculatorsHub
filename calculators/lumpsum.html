@@ -11,8 +11,8 @@
 <link rel="icon" href="/favicon-32.png"/>
 
 <!-- Libraries -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 
 <style>
@@ -60,7 +60,7 @@ footer a{color:var(--muted);margin:0 8px}
       "@type": "WebPage",
       "@id": "https://financecalculatorshub.com/calculators/lumpsum.html#webpage",
       "url": "https://financecalculatorshub.com/calculators/lumpsum.html",
-      "name": "Lumpsum Calculator — FinanceCalculatorsHub",
+      "name": "Lumpsum Calculator â€” FinanceCalculatorsHub",
       "description": "Lumpsum investment calculator with yearly growth projection, charts and professional PDF report. Supports USD, EUR, GBP, AUD and INR.",
       "inLanguage": "en",
       "isPartOf": {
@@ -621,8 +621,8 @@ footer a{color:var(--muted);margin:0 8px}
     </div>
 
     <div class="metrics">
-      <div class="metric" id="futureBox">Future Value —</div>
-      <div class="metric" id="gainBox">Total Gain —</div>
+      <div class="metric" id="futureBox">Future Value â€”</div>
+      <div class="metric" id="gainBox">Total Gain â€”</div>
     </div>
 
     <div class="table-box" id="tblWrap" aria-hidden="true">
@@ -1196,7 +1196,7 @@ function updateAll(){
   gainBox.textContent = "Total Gain " + fmtCur(c).format(res.gain);
 
   snap.innerHTML = "Investment: "+fmtCur(c).format(amount)
-    +"<br>Rate: "+r+"% · "+y+" years";
+    +"<br>Rate: "+r+"% Â· "+y+" years";
 
   renderTable(res.yearly, c);
   buildCharts(res, c);
@@ -1207,8 +1207,8 @@ go.addEventListener('click', updateAll);
 
 reset.addEventListener('click', ()=>{
   amt.value=5000; rate.value=8; yrs.value=10; cur.value='USD';
-  futureBox.textContent='Future Value —';
-  gainBox.textContent='Total Gain —';
+  futureBox.textContent='Future Value â€”';
+  gainBox.textContent='Total Gain â€”';
   tblBody.innerHTML=''; tblWrap.setAttribute('aria-hidden','true');
   snap.textContent='Enter values and calculate to view projections and charts.';
   if(lineChart) lineChart.destroy(); if(pieChart) pieChart.destroy();
@@ -1216,13 +1216,28 @@ reset.addEventListener('click', ()=>{
 
 window.onload = updateAll;
 
-pdfBtn.addEventListener('click',()=>{
-  if(!window.__LUMP__){alert("Calculate first");return;}
-  const {inputs,res} = window.__LUMP__;
-  const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF({unit:'pt',format:'a4'});
-  const margin = 36;
-  let y = margin;
+pdfBtn.addEventListener('click', () => {
+    if (!window.__LUMP__) {
+        alert("Calculate first");
+        return;
+    }
+
+    const { inputs, result: res } = window.__LUMP__;
+
+    // Guaranteed-working jsPDF initialization
+    let jsPDF;
+    if (window.jspdf && window.jspdf.jsPDF) {
+        jsPDF = window.jspdf.jsPDF;
+    } else if (window.jsPDF) {
+        jsPDF = window.jsPDF;
+    } else {
+        alert("PDF library not loaded. Check script URL.");
+        return;
+    }
+
+    const pdf = new jsPDF({ unit: "pt", format: "a4" });
+    const margin = 36;
+    let y = margin;
   const pageW = pdf.internal.pageSize.getWidth();
 
   function fmt(v){return new Intl.NumberFormat('en-US',{style:'currency',currency:inputs.c}).format(v)}
@@ -1262,19 +1277,23 @@ pdfBtn.addEventListener('click',()=>{
     r.year, fmt(r.start), fmt(r.ret), fmt(r.end)
   ]);
   pdf.autoTable({
-    startY:y,
-    head:head,
-    body:body,
-    styles:{fontSize:9,cellPadding:6},
-    didParseCell:function(d){
-      if(d.section==='body'){
-        d.cell.styles.fillColor = d.row.index%2===0?[250,250,250]:[240,240,240];
-      }
+    startY: y,
+    head: head,
+    body: body,
+    styles: { fontSize: 9, cellPadding: 6 },
+    didParseCell: function (d) {
+        if (d.section === 'body') {
+            d.cell.styles.fillColor = d.row.index % 2 === 0 ? [250, 250, 250] : [240, 240, 240];
+        }
     },
-    theme:'striped',
-    headStyles:{fillColor:[245,245,245]},
-    margin:{left:margin,right:margin}
-  });
+    theme: 'striped',
+    headStyles: {
+        fillColor: [245, 245, 245], // background
+        fontStyle: 'bold',          // bold text
+        textColor: [0, 0, 0]        // black text
+    },
+    margin: { left: margin, right: margin }
+});
 
   pdf.save("Lumpsum_Report.pdf");
 });
