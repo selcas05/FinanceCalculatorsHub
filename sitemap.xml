@@ -44,6 +44,13 @@
     <changefreq>weekly</changefreq>
   </url>
 
+  <!-- NEW: CD Calculator -->
+  <url>
+    <loc>https://financecalculatorshub.com/calculators/cd.html</loc>
+    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
   <!-- Blog -->
   <url>
     <loc>https://financecalculatorshub.com/blog.html</loc>
@@ -51,7 +58,7 @@
     <changefreq>weekly</changefreq>
   </url>
 
-  <!-- Legal -->
+  <!-- Legal Pages -->
   <url>
     <loc>https://financecalculatorshub.com/privacy.html</loc>
     <priority>0.40</priority>
