@@ -51,10 +51,17 @@
     <changefreq>weekly</changefreq>
   </url>
 
-  <!-- Blog -->
+  <!-- Blog Index -->
   <url>
     <loc>https://financecalculatorshub.com/blog.html</loc>
     <priority>0.80</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- NEW: CD Guide Blog -->
+  <url>
+    <loc>https://financecalculatorshub.com/blog/cd-guide.html</loc>
+    <priority>0.85</priority>
     <changefreq>weekly</changefreq>
   </url>
 
