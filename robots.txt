@@ -2,6 +2,11 @@ User-agent: *
 Allow: /
 
 # --------------------------------------
+# Allow calculators folder (important)
+# --------------------------------------
+Allow: /calculators/
+
+# --------------------------------------
 # Prevent crawling of system / private folders
 # --------------------------------------
 Disallow: /admin/
@@ -25,17 +30,17 @@ Disallow: /*.env$
 
 # --------------------------------------
 # Prevent duplicate content URLs
-# (Stops Google from crawling search params, ?ref=, ?utm= etc.)
+# Blocks all ? and & parameters by default
 # --------------------------------------
 Disallow: /*?*
 Disallow: /*&*
 
-# Allow essential parameter for internal search
+# Allow essential internal search parameter
 Allow: /search?q=
 
 # --------------------------------------
 # Allow Googlebot full JS/CSS crawling
-# Important for AdSense and Core Web Vitals
+# Important for AdSense & Core Web Vitals
 # --------------------------------------
 User-agent: Googlebot
 Allow: /*.js
@@ -43,7 +48,7 @@ Allow: /*.css
 Allow: /
 
 # --------------------------------------
-# Block harmful & scrapers (recommended)
+# Block harmful scrapers
 # --------------------------------------
 User-agent: AhrefsBot
 Disallow: /
@@ -64,6 +69,6 @@ User-agent: Baiduspider
 Disallow: /
 
 # --------------------------------------
-# Sitemap location
+# Sitemap
 # --------------------------------------
 Sitemap: https://financecalculatorshub.com/sitemap.xml
