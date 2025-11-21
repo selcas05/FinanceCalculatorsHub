@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 <title id="pageTitle">Certificate of Deposit (CD) Calculator &mdash; FinanceCalculatorsHub</title>
-<meta name="description" id="metaDesc" content="CD Calculator — Calculate maturity value, APY, interest earned and compounding frequency for US Certificates of Deposit. Includes charts and downloadable PDF report."/>
+<meta name="description" id="metaDesc" content="CD Calculator â€” Calculate maturity value, APY, interest earned and compounding frequency for US Certificates of Deposit. Includes charts and downloadable PDF report."/>
 <link rel="canonical" id="canonicalLink" href="https://financecalculatorshub.com/calculators/cd.html"/>
 
 <link rel="icon" href="/favicon-32.png"/>
@@ -72,14 +72,14 @@ footer a{color:var(--muted);margin:0 8px}
 .small-muted{font-size:13px;color:var(--muted)}
 </style>
 </style>
-<!-- CD CALCULATOR — FULL DETAILED JSON-LD SCHEMA -->
+<!-- CD CALCULATOR â€” FULL DETAILED JSON-LD SCHEMA -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": "https://financecalculatorshub.com/calculators/cd.html#webpage",
   "url": "https://financecalculatorshub.com/calculators/cd.html",
-  "name": "Certificate of Deposit (CD) Calculator — Maturity, APY & Interest Breakdown",
+  "name": "Certificate of Deposit (CD) Calculator â€” Maturity, APY & Interest Breakdown",
   "description": "Free CD calculator for the USA. Calculate maturity value, APY, compounding, interest earned, CD penalties and term-based returns. Includes charts, breakdown tables and downloadable PDF report.",
   "keywords": [
     "certificate of deposit calculator",
@@ -175,7 +175,7 @@ footer a{color:var(--muted);margin:0 8px}
 }
 </script>
 
-<!-- FAQ SCHEMA — 15 ACCORDION QUESTIONS (EXACTLY BASED ON YOUR CONTENT) -->
+<!-- FAQ SCHEMA â€” 15 ACCORDION QUESTIONS (EXACTLY BASED ON YOUR CONTENT) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -284,7 +284,7 @@ footer a{color:var(--muted);margin:0 8px}
     "@type": "WebPage",
     "@id": "https://financecalculatorshub.com/calculators/cd.html"
   },
-  "headline": "Certificate of Deposit (CD) FAQ – Interest, Maturity, Penalties & Growth",
+  "headline": "Certificate of Deposit (CD) FAQ â€“ Interest, Maturity, Penalties & Growth",
   "description": "Detailed answers to the most common Certificate of Deposit (CD) questions in the USA, including interest calculation, APY, maturity dates, penalties, CD laddering, no-penalty CDs, taxes, and choosing the best CD.",
   "author": {
     "@type": "Organization",
@@ -406,8 +406,8 @@ footer a{color:var(--muted);margin:0 8px}
       </div>
 
       <div class="metrics" style="margin-top:14px">
-        <div class="metric" id="maturityBox">Maturity Value —</div>
-        <div class="metric" id="apyBox">Effective APY —</div>
+        <div class="metric" id="maturityBox">Maturity Value â€”</div>
+        <div class="metric" id="apyBox">Effective APY â€”</div>
       </div>
 
       <!-- NEW: maturity date and penalty boxes -->
@@ -443,7 +443,7 @@ footer a{color:var(--muted);margin:0 8px}
     </aside>
   </section>
 
-<!-- ? FAQ BLOCK — Fully Corrected -->
+<!-- ? FAQ BLOCK â€” Fully Corrected -->
 <div id="cd-faq-list" style="margin-top:28px">
 
   <!-- 1 -->
@@ -575,7 +575,14 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 </script>
-
+<div style="background:#f1f5f9;padding:16px;border-radius:12px;margin-top:22px;">
+  <h3 style="margin:0 0 10px 0;">&#128216; Want to Learn Everything About CDs?</h3>
+  <p style="margin:0;color:#555;">Read our full USA-Optimized Certificate of Deposit Guide.</p>
+  <a href="/blog/cd-guide.html"
+     style="display:inline-block;margin-top:12px;background:#0f62fe;color:#fff;padding:10px 18px;border-radius:10px;font-weight:700;text-decoration:none;">
+     Read CD Guide &rightarrow;
+  </a>
+</div>
 <footer>
   &copy; FinanceCalculatorsHub &mdash; Smart finance tools &mdash;
   <a href="/privacy.html">Privacy</a> &middot;
@@ -713,7 +720,7 @@ function updateAll(){
 
   const startVal = startDateInput.value;
   const matDate = computeMaturityDate(startVal, y);
-  maturityDateEl.textContent = matDate ? matDate.toLocaleDateString() : '—';
+  maturityDateEl.textContent = matDate ? matDate.toLocaleDateString() : 'â€”';
 
   snap.innerHTML = `Principal: ${fmtCurUSD(P)}<br>Rate: ${r}% - ${y} years - ${freq.options[freq.selectedIndex].textContent}`;
 
@@ -727,8 +734,8 @@ function updateAll(){
   const penaltyAmount = computePenalty(P, r, penaltyMonths);
   const adjustedValue = Number((res.fv - penaltyAmount).toFixed(2));
 
-  penaltyAmtEl.textContent = penaltyAmount > 0 ? fmtCurUSD(penaltyAmount) : '—';
-  adjustedValueEl.textContent = adjustedValue !== res.fv ? fmtCurUSD(adjustedValue) : '—';
+  penaltyAmtEl.textContent = penaltyAmount > 0 ? fmtCurUSD(penaltyAmount) : 'â€”';
+  adjustedValueEl.textContent = adjustedValue !== res.fv ? fmtCurUSD(adjustedValue) : 'â€”';
 
   window.__CD__ = {
     inputs:{P,r,y,f,startDate:startVal,penaltyMonths,currency:'USD'},
@@ -743,11 +750,11 @@ resetBtn.addEventListener('click', ()=>{
   penaltyType.value='none';
   customPenaltyWrap.style.display='none';
   customPenaltyMonths.value=3;
-  maturityBox.textContent='Maturity Value —';
-  apyBox.textContent='Effective APY —';
-  maturityDateEl.textContent='—';
-  penaltyAmtEl.textContent='—';
-  adjustedValueEl.textContent='—';
+  maturityBox.textContent='Maturity Value â€”';
+  apyBox.textContent='Effective APY â€”';
+  maturityDateEl.textContent='â€”';
+  penaltyAmtEl.textContent='â€”';
+  adjustedValueEl.textContent='â€”';
   tblBody.innerHTML='';
   tblWrap.setAttribute('aria-hidden','true');
   snap.textContent='Enter values and click Calculate to view maturity breakdown and charts.';
