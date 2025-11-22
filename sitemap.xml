@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Homepage -->
   <url>
     <loc>https://financecalculatorshub.com/</loc>
     <priority>1.00</priority>
@@ -44,25 +45,37 @@
     <changefreq>weekly</changefreq>
   </url>
 
-  <!-- NEW: CD Calculator -->
   <url>
     <loc>https://financecalculatorshub.com/calculators/cd.html</loc>
     <priority>0.95</priority>
     <changefreq>weekly</changefreq>
   </url>
 
-  <!-- Blog Index -->
+  <!-- NEW: Mortgage Calculator -->
+  <url>
+    <loc>https://financecalculatorshub.com/calculators/mortgage.html</loc>
+    <priority>0.95</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- BLOG INDEX PAGE -->
   <url>
     <loc>https://financecalculatorshub.com/blog.html</loc>
     <priority>0.80</priority>
     <changefreq>weekly</changefreq>
   </url>
 
-  <!-- NEW: CD Guide Blog -->
+  <!-- NEW: Mortgage Guide Blog -->
+  <url>
+    <loc>https://financecalculatorshub.com/blog/mortgage-guide.html</loc>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
   <url>
     <loc>https://financecalculatorshub.com/blog/cd-guide.html</loc>
-    <priority>0.85</priority>
-    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+    <changefreq>monthly</changefreq>
   </url>
 
   <!-- Legal Pages -->
