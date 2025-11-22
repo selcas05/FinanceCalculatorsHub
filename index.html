@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -157,12 +158,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": "https://financecalculatorshub.com/#organization",
   "name": "FinanceCalculatorsHub",
+  "legalName": "FinanceCalculatorsHub",
   "alternateName": "Finance Calculators Hub",
   "url": "https://financecalculatorshub.com/",
   "logo": "https://financecalculatorshub.com/logo.png",
@@ -172,16 +174,13 @@
     "@type": "Person",
     "name": "FinanceCalculatorsHub Team"
   },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer support",
-    "email": "support@financecalculatorshub.com"
-  },
-  "sameAs": [
-    "https://www.facebook.com/",
-    "https://www.instagram.com/",
-    "https://www.linkedin.com/",
-    "https://twitter.com/"
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@financecalculatorshub.com",
+      "availableLanguage": ["en"]
+    }
   ],
   "knowsAbout": [
     "Finance calculators",
@@ -192,10 +191,13 @@
     "Lumpsum calculator",
     "SWP calculator",
     "Loan calculations",
-    "Investment planning"
+    "Investment planning",
+    "Mortgage calculator",
+    "CD calculator"
   ]
 }
 </script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -212,14 +214,22 @@
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
+  "@id": "https://financecalculatorshub.com/#aboutpage",
   "url": "https://financecalculatorshub.com/",
   "name": "About FinanceCalculatorsHub",
-  "description": "FinanceCalculatorsHub provides accurate EMI, SIP, Lumpsum, SWP, FD and RD calculators with downloadable PDF reports. Built for professionals and individuals.",
+  "inLanguage": "en",
+  "description": "FinanceCalculatorsHub provides accurate EMI, SIP, Lumpsum, SWP, FD, RD, Mortgage, and CD calculators with downloadable PDF reports. Built for professionals, investors, and individuals seeking precise financial computation tools.",
+  "mainEntityOfPage": "https://financecalculatorshub.com/",
   "publisher": {
     "@id": "https://financecalculatorshub.com/#organization"
-  }
+  },
+  "breadcrumb": {
+    "@id": "https://financecalculatorshub.com/#breadcrumb"
+  },
+  "lastReviewed": "2025-01-01"
 }
 </script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -227,8 +237,8 @@
   "@id": "https://financecalculatorshub.com/#webpage",
   "url": "https://financecalculatorshub.com/",
   "name": "FinanceCalculatorsHub — Smart Finance Calculators",
-  "description": "FinanceCalculatorsHub provides accurate EMI, SIP, Lumpsum, SWP, FD and RD calculators with downloadable PDF reports. Fast, clean and professional.",
-  "inLanguage": "en-IN",
+  "inLanguage": "en",
+  "description": "FinanceCalculatorsHub provides accurate EMI, SIP, Lumpsum, SWP, FD, RD, Mortgage, and CD calculators with downloadable PDF reports. Fast, clean and professional.",
   "publisher": {
     "@id": "https://financecalculatorshub.com/#organization"
   },
@@ -240,7 +250,8 @@
   },
   "mainEntity": {
     "@id": "https://financecalculatorshub.com/#softwareapp"
-  }
+  },
+  "lastReviewed": "2025-01-01"
 }
 </script>
 <script type="application/ld+json">
@@ -254,24 +265,33 @@
   "applicationSubCategory": "Financial Calculator Suite",
   "softwareVersion": "2.0",
   "url": "https://financecalculatorshub.com/",
-  "description": "A professional suite of finance tools including EMI, SIP, Lumpsum, SWP, FD and RD calculators with accurate results and downloadable PDF reports.",
-  "screenshot": "https://financecalculatorshub.com/preview.png",
+  "description": "A professional suite of finance tools including EMI, SIP, Lumpsum, SWP, FD, RD, Mortgage, CD and other calculators with accurate results and downloadable PDF reports.",
+  
+  "screenshot": [
+    "https://financecalculatorshub.com/preview.png"
+  ],
+  
   "featureList": [
     "EMI calculator with amortization table",
     "SIP calculator with future value projection",
-    "Lumpsum calculator with compounding",
-    "SWP withdrawal simulator",
-    "FD & RD maturity calculation",
-    "Downloadable PDF reports"
+    "Lumpsum calculator with compounding options",
+    "SWP withdrawal simulator with cashflow timeline",
+    "FD & RD maturity calculation with yearly breakdown",
+    "Mortgage calculator with dates, PMI, tax & insurance",
+    "CD calculator with APY and maturity value",
+    "Downloadable PDF reports for all calculators"
   ],
+  
   "creator": {
     "@id": "https://financecalculatorshub.com/#organization"
   },
+  
   "offers": {
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "INR"
   },
+  
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
@@ -279,6 +299,7 @@
   }
 }
 </script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -290,10 +311,23 @@
       "position": 1,
       "name": "Home",
       "item": "https://financecalculatorshub.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Calculators",
+      "item": "https://financecalculatorshub.com/calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Blog",
+      "item": "https://financecalculatorshub.com/blog.html"
     }
   ]
 }
 </script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -332,20 +366,65 @@
   "@type": "ItemList",
   "name": "Finance Calculators",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "EMI Calculator", "url": "https://financecalculatorshub.com/calculators/emi.html" },
-    { "@type": "ListItem", "position": 2, "name": "SIP Calculator", "url": "https://financecalculatorshub.com/calculators/sip.html" },
-    { "@type": "ListItem", "position": 3, "name": "Lumpsum Calculator", "url": "https://financecalculatorshub.com/calculators/lumpsum.html" },
-    { "@type": "ListItem", "position": 4, "name": "SWP Calculator", "url": "https://financecalculatorshub.com/calculators/swp.html" },
-    { "@type": "ListItem", "position": 5, "name": "FD Calculator", "url": "https://financecalculatorshub.com/calculators/fd.html" },
-    { "@type": "ListItem", "position": 6, "name": "RD Calculator", "url": "https://financecalculatorshub.com/calculators/rd.html" },
-    { "@type": "ListItem", "position": 7, "name": "CD Calculator", "url": "https://financecalculatorshub.com/calculators/cd.html" }
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "EMI Calculator",
+      "url": "https://financecalculatorshub.com/calculators/emi.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "SIP Calculator",
+      "url": "https://financecalculatorshub.com/calculators/sip.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lumpsum Calculator",
+      "url": "https://financecalculatorshub.com/calculators/lumpsum.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "SWP Calculator",
+      "url": "https://financecalculatorshub.com/calculators/swp.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "FD Calculator",
+      "url": "https://financecalculatorshub.com/calculators/fd.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "name": "RD Calculator",
+      "url": "https://financecalculatorshub.com/calculators/rd.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "name": "CD Calculator",
+      "url": "https://financecalculatorshub.com/calculators/cd.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "name": "Mortgage Calculator",
+      "url": "https://financecalculatorshub.com/calculators/mortgage.html"
+    }
   ]
 }
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": "https://financecalculatorshub.com/#speakable",
+  "url": "https://financecalculatorshub.com/",
+  "name": "FinanceCalculatorsHub — Smart Finance Calculators",
+  "inLanguage": "en",
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [
@@ -592,6 +671,25 @@
             <a class="ghost-link" href="/blog.html#cd">Guide</a>
           </div>
         </article>
+        <!-- Mortgage Calculator -->
+        <article class="card" role="listitem" aria-labelledby="mortgageTitle">
+          <div class="card-top">
+            <div class="icon-wrap" aria-hidden="true">
+              <!-- home loan / mortgage icon -->
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 10L12 3l9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10z" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 id="mortgageTitle">Mortgage Calculator</h3>
+              <p>U.S. mortgage payment, amortization with dates, taxes, insurance & PMI.</p>
+            </div>
+          </div>
+          <div class="actions">
+            <a class="link" href="/calculators/mortgage.html">Open</a>
+            <a class="ghost-link" href="/blog.html#mortgage">Guide</a>
+          </div>
+        </article>
 
       </div>
     </section>
@@ -608,6 +706,8 @@
         <li><strong>SWP:</strong> Withdrawal planning with capital preservation checks and timeline simulation.</li>
         <li><strong>FD:</strong> Maturity value, interest compounded frequency, and yearly breakdown.</li>
         <li><strong>RD:</strong> Recurring deposit maturity calculation and total interest earned.</li>
+        <li><strong>CD:</strong> Certificate of Deposit maturity value, APY calculation and interest earned.</li>
+        <li><strong>Mortgage:</strong> Monthly payment, amortization schedule with dates, taxes, insurance and PMI.</li>
       </ul>
 
       <h3>Precision and privacy</h3>
