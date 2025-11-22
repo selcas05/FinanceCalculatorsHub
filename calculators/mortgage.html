@@ -1,0 +1,921 @@
+<!-- Part 1: head + header + inputs (paste first) -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- Google AdSense Auto Ads -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6820451791285069" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mortgage Calculator &mdash; FinanceCalculatorsHub</title>
+<meta name="description" content="Free US Mortgage Calculator — monthly payment, amortization schedule with dates, start date, taxes, insurance, PMI & downloadable PDF report. Optimized for USA users."/>
+<link rel="canonical" href="https://financecalculatorshub.com/calculators/mortgage.html"/>
+<meta name="keywords" content="mortgage calculator, mortgage amortization, mortgage calculator USA, mortgage payment calculator, mortgage rates, mortgage amortization schedule, mortgage PDF report, home loan calculator">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Mortgage Calculator — FinanceCalculatorsHub"/>
+<meta property="og:description" content="Free US Mortgage Calculator — monthly payment, amortization schedule with dates, start date, taxes, insurance, PMI & downloadable PDF report."/>
+<meta property="og:url" content="https://financecalculatorshub.com/calculators/mortgage.html"/>
+<meta property="og:site_name" content="FinanceCalculatorsHub"/>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Mortgage Calculator — FinanceCalculatorsHub"/>
+<meta name="twitter:description" content="Free US Mortgage Calculator — monthly payment, amortization schedule with dates, start date & downloadable PDF." />
+
+<!-- Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+<style>
+:root{
+  --bg:#f6f8fb; --panel:#fff; --muted:#6b7280; --primary:#0f62fe; --accent:#00bfa6;
+  --line:rgba(15,23,42,0.06); --radius:14px; --shadow:0 12px 30px rgba(7,18,40,0.06);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#0b1220}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+.header{display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.logo{width:56px;height:56px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:800}
+.title{font-size:20px;font-weight:800;margin:0}
+.sub{font-size:13px;color:var(--muted);margin-top:4px}
+.grid{display:grid;grid-template-columns:1fr 380px;gap:22px;margin-top:20px}
+@media(max-width:980px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);padding:18px}
+label{font-weight:700;margin-bottom:6px;display:block}
+.input, select{width:100%;padding:12px;font-size:15px;border:1px solid var(--line);border-radius:10px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn-main{flex:1;padding:12px;border:0;border-radius:12px;background:linear-gradient(90deg,var(--primary),#005cff);color:#fff;font-weight:800;cursor:pointer}
+.btn-ghost{flex:1;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;color:#000;cursor:pointer}
+.metrics{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.metric{flex:1;min-width:150px;background:linear-gradient(90deg,var(--primary),var(--accent));color:#fff;padding:12px;border-radius:12px;font-size:15px;font-weight:800;text-align:center}
+.table-box{max-height:360px;overflow:auto;margin-top:16px;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;border-bottom:1px solid var(--line);font-size:14px}
+th{background:#f8fafc;text-align:left;position:sticky;top:0}
+.faq-item { border-bottom: 1px solid #e5e7eb; padding: 14px 0; }
+.faq-question { cursor: pointer; font-weight: 700; color: #0f62fe; text-decoration: underline; font-size: 17px; }
+.faq-answer { display: none; padding: 10px 6px 0 6px; color: #374151; font-size: 15px; line-height: 1.6; }
+.small{font-size:13px;color:var(--muted)}
+.badge{display:inline-block;padding:6px 8px;border-radius:8px;background:#f1f5f9;color:#0f172a;font-weight:700;margin-right:8px;font-size:13px}
+</style>
+
+<!-- JSON-LD: WebPage + SoftwareApplication (SEO) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "@id":"https://financecalculatorshub.com/calculators/mortgage.html#webpage",
+  "url":"https://financecalculatorshub.com/calculators/mortgage.html",
+  "name":"Mortgage Calculator — FinanceCalculatorsHub",
+  "description":"Free mortgage calculator for US users: monthly payment, amortization schedule with dates, start date, property tax, insurance, PMI and downloadable report.",
+  "isPartOf":{"@id":"https://financecalculatorshub.com/#website"},
+  "mainEntity":{"@id":"https://financecalculatorshub.com/calculators/mortgage.html#softwareapp"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://financecalculatorshub.com/",
+  "name": "FinanceCalculatorsHub",
+  "alternateName": "Finance Calculators Hub",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://financecalculatorshub.com/search?q={query}",
+    "query-input": "required name=query"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "@id":"https://financecalculatorshub.com/#org",
+  "name":"FinanceCalculatorsHub",
+  "legalName":"Finance Calculators Hub",
+  "url":"https://financecalculatorshub.com/",
+  "logo":"https://financecalculatorshub.com/logo.png",
+  "sameAs":[
+    "https://financecalculatorshub.com/",
+    "https://www.facebook.com/",
+    "https://www.instagram.com/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "@id":"https://financecalculatorshub.com/calculators/mortgage.html#breadcrumb",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"Home",
+      "item":"https://financecalculatorshub.com/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"Calculators",
+      "item":"https://financecalculatorshub.com/calculators/"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"Mortgage Calculator",
+      "item":"https://financecalculatorshub.com/calculators/mortgage.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"SoftwareApplication",
+  "@id":"https://financecalculatorshub.com/calculators/mortgage.html#app",
+  "name":"Mortgage Calculator — FinanceCalculatorsHub",
+  "operatingSystem":"All",
+  "applicationCategory":"FinanceApplication",
+  "applicationSubCategory":"Mortgage Calculator",
+  "url":"https://financecalculatorshub.com/calculators/mortgage.html",
+  "description":"Free U.S. Mortgage Calculator: monthly payment, amortization schedule, PMI, property taxes, insurance, line chart, pie chart, and downloadable PDF report.",
+  "featureList":[
+    "Mortgage payment calculator",
+    "Amortization schedule",
+    "Start date payment scheduler",
+    "Escrow calculation (tax + insurance)",
+    "PMI detection and calculation",
+    "USA-focused mortgage logic",
+    "Pie chart — principal vs interest",
+    "Line chart — balance reduction",
+    "Downloadable PDF report"
+  ],
+  "offers":{
+    "@type":"Offer",
+    "price":"0",
+    "priceCurrency":"USD"
+  }
+}
+</script>
+<!-- Mortgage Loan Rate Schema for USA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "U.S. Mortgage Loan Rates",
+  "description": "Current U.S. mortgage loan APR examples used for calculations in the Mortgage Calculator, including 15-year, 30-year, FHA and VA mortgage rate structures.",
+  "url": "https://financecalculatorshub.com/calculators/mortgage.html",
+  
+  "provider": {
+    "@type": "Organization",
+    "name": "FinanceCalculatorsHub",
+    "url": "https://financecalculatorshub.com/"
+  },
+
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States",
+    "identifier": "US"
+  },
+
+  "offers": [
+    {
+      "@type": "MortgageLoan",
+      "name": "30-Year Fixed Rate Mortgage",
+      "loanType": "FixedRate",
+      "loanTerm": "P30Y",
+      "interestRate": "6.50",
+      "annualPercentageRate": "6.58",
+      "feesAndCommissionsSpecification": "Typical lender origination and closing fees apply.",
+      "loanMortgageInsuranceIncluded": "PMI may apply if down payment < 20%",
+      "loanAmountExample": "350000"
+    },
+    {
+      "@type": "MortgageLoan",
+      "name": "15-Year Fixed Rate Mortgage",
+      "loanType": "FixedRate",
+      "loanTerm": "P15Y",
+      "interestRate": "5.75",
+      "annualPercentageRate": "5.82",
+      "feesAndCommissionsSpecification": "Includes typical lender origination fees.",
+      "loanMortgageInsuranceIncluded": "PMI may apply if down payment < 20%",
+      "loanAmountExample": "350000"
+    },
+    {
+      "@type": "MortgageLoan",
+      "name": "FHA 30-Year Mortgage",
+      "loanType": "FHA",
+      "loanTerm": "P30Y",
+      "interestRate": "6.20",
+      "annualPercentageRate": "6.75",
+      "feesAndCommissionsSpecification": "Upfront MIP + annual MIP requirements included.",
+      "loanMortgageInsuranceIncluded": "Mortgage Insurance Premium (MIP) applies regardless of down payment.",
+      "loanAmountExample": "350000"
+    },
+    {
+      "@type": "MortgageLoan",
+      "name": "VA 30-Year Mortgage",
+      "loanType": "VA",
+      "loanTerm": "P30Y",
+      "interestRate": "6.10",
+      "annualPercentageRate": "6.45",
+      "feesAndCommissionsSpecification": "VA Funding Fee applies unless exempt.",
+      "loanMortgageInsuranceIncluded": "No PMI for VA loans.",
+      "loanAmountExample": "350000"
+    }
+  ],
+
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "EscrowIncluded",
+      "value": "Property tax + homeowners insurance can be included in monthly payments."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "PMIIncluded",
+      "value": "PMI automatically added if down payment < 20%."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ReportGeneration",
+      "value": "Mortgage calculator generates downloadable PDF amortization report."
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Place",
+  "name":"United States",
+  "geo":{
+    "@type":"GeoShape",
+    "addressCountry":"US"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "keywords":[
+    "mortgage calculator USA",
+    "home loan calculator",
+    "amortization schedule calculator",
+    "PMI mortgage calculator",
+    "property tax mortgage calculator",
+    "home insurance calculator",
+    "real estate mortgage tool",
+    "monthly mortgage payment calculator",
+    "mortgage PDF report generator",
+    "mortgage calculator with charts"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "speakable":{
+    "@type":"SpeakableSpecification",
+    "cssSelector":[
+      "h2",
+      "#monthlyBox",
+      "#totalInterestBox"
+    ]
+  }
+}
+</script>
+
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="logo">FC</div>
+    <div>
+      <div class="title">FinanceCalculatorsHub</div>
+      <div class="sub">Mortgage Calculator &mdash; Monthly payment, amortization & PDF</div>
+    </div>
+  </header>
+
+  <section class="grid">
+    <div class="card">
+      <h2 id="pageH1">Mortgage Calculator</h2>
+      <p class="small" id="lead">Estimate monthly payment, amortization schedule (with dates), total interest, taxes, insurance and PMI. Designed for U.S. mortgages.</p>
+
+      <!-- START DATE -->
+      <label>Start Date (optional)</label>
+      <input id="startDate" class="input" type="date" />
+
+      <!-- INPUTS STACKED -->
+      <label style="margin-top:12px">Home Price (USD)</label>
+      <input id="homePrice" class="input" type="number" value="350000" />
+
+      <label style="margin-top:12px">Down Payment (USD)</label>
+      <input id="downPayment" class="input" type="number" value="70000" />
+
+      <label style="margin-top:12px">Loan Term (years)</label>
+      <input id="termYears" class="input" type="number" value="30" />
+
+      <label style="margin-top:12px">Interest Rate (APR %)</label>
+      <input id="interestRate" class="input" type="number" step="0.001" value="6.5" />
+
+      <label style="margin-top:12px">Property Tax (annual %)</label>
+      <input id="propTax" class="input" type="number" step="0.01" value="1.1" />
+
+      <label style="margin-top:12px">Home Insurance (annual %)</label>
+      <input id="homeIns" class="input" type="number" step="0.01" value="0.35" />
+
+      <label style="margin-top:12px">PMI (annual &percnt; &mdash; if down &lt;20%)</label>
+      <input id="pmiRate" class="input" type="number" step="0.01" value="0.5" />
+
+      <div class="row" style="margin-top:12px">
+        <button id="calcBtn" class="btn-main">Calculate</button>
+        <button id="resetBtn" class="btn-ghost">Reset</button>
+        <button id="pdfBtn" class="btn-ghost">Download PDF</button>
+      </div>
+
+      <div class="metrics" style="margin-top:14px">
+        <div class="metric" id="monthlyBox">Monthly Payment —</div>
+        <div class="metric" id="totalInterestBox">Total Interest —</div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+        <div class="badge">First Payment: <span id="firstPaymentDate" class="small">&mdash;</span></div>
+        <div class="badge">Maturity Date: <span id="maturityDate" class="small">&mdash;</span></div>
+      </div>
+      
+      <div class="small" style="margin-top:12px;color:#6b7280">
+        NOTE: This mortgage calculation is an estimate only. Actual mortgage rates, PMI rules, taxes, insurance premiums, and lender fees may vary. This tool is for informational purposes only and not financial advice.
+      </div>
+
+      <div class="table-box" id="amTableWrap" aria-hidden="true">
+        <table>
+          <thead><tr><th>Payment #</th><th>Date</th><th style="text-align:right">Payment</th><th style="text-align:right">Interest</th><th style="text-align:right">Principal</th><th style="text-align:right">Balance</th></tr></thead>
+          <tbody id="amBody"></tbody>
+        </table>
+      </div>
+
+<!-- Part 2: aside, 15 FAQ items, footer (paste second) -->
+    </div> <!-- end left card -->
+
+    <aside class="card">
+      <div class="summary">
+        <strong>Snapshot</strong>
+        <p class="small" id="snapshot">Enter values and click Calculate to view amortization, charts, and PDF report.</p>
+        <p class="small">APY/APR differences do not apply to mortgages; values show nominal APR here.</p>
+      </div>
+
+      <div class="chart-box" style="height:220px;margin-top:12px"><canvas id="mortLine"></canvas></div>
+      <div class="chart-box" style="height:220px;margin-top:12px"><canvas id="mortPie"></canvas></div>
+
+      <div style="margin-top:12px">
+        <h4>FAQ</h4>
+        <div>
+          <div class="faq-question">How is monthly payment calculated?</div>
+          <div class="faq-answer">Monthly mortgage payment is calculated using the loan principal, monthly interest rate and number of payments (amortization formula).</div>
+        </div>
+        <div style="margin-top:8px">
+          <div class="faq-question">When do I pay property tax and insurance?</div>
+          <div class="faq-answer">Property tax and insurance are typically collected annually; many lenders escrow a monthly portion into your mortgage payment.</div>
+        </div>
+        <a href="/blog/mortgage-guide.html" 
+   style="
+     display:inline-block;
+     background:#0f62fe;
+     color:#fff;
+     padding:12px 18px;
+     border-radius:12px;
+     font-weight:800;
+     text-decoration:none;
+     box-shadow:0 10px 20px rgba(15,98,254,0.20);
+     margin-top:16px;
+     font-size:15px;
+   ">
+  &#128216; Read the Full Mortgage Guide
+</a>
+
+      </div>
+    </aside>
+  </section>
+
+  <section class="card" style="margin-top:18px">
+  <h3>Mortgage FAQs</h3>
+
+  <div id="faq-list">
+
+    <!-- 1 -->
+    <div class="faq-item">
+      <div class="faq-question">1. What is a mortgage loan?</div>
+      <div class="faq-answer">
+        <p>A mortgage loan is a long-term home financing product used in the United States, where a borrower receives funds from a lender to purchase a property. The home itself serves as collateral until the loan is fully paid off. Each monthly payment includes both principal (the loan balance) and interest. Our Mortgage Calculator helps U.S. borrowers estimate monthly payments, total interest cost, PMI, taxes, insurance, and generates a complete amortization schedule with payment dates.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="faq-item">
+      <div class="faq-question">2. How is monthly mortgage payment calculated?</div>
+      <div class="faq-answer">
+        <p>Monthly mortgage payment in the U.S. is calculated using the amortization formula based on loan amount, APR, and term (in months). The payment includes principal + interest and may also include escrow components such as property taxes, homeowners insurance, and PMI. Our calculator accurately computes your monthly payment and displays a month-by-month breakdown, plus a downloadable PDF report.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="faq-item">
+      <div class="faq-question">3. What is PMI and when is it charged?</div>
+      <div class="faq-answer">
+        <p>Private Mortgage Insurance (PMI) is a fee added to U.S. mortgages when the down payment is less than 20% of the home price. PMI protects the lender-not the borrower-and increases your monthly payment. Most U.S. banks automatically remove PMI when your Loan-to-Value (LTV) reaches 78%, or you may request removal at 80%. Our calculator automatically adds PMI when your down payment is under 20% and shows the effect on total monthly payment and long-term cost.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="faq-item">
+      <div class="faq-question">4. How does mortgage amortization work?</div>
+      <div class="faq-answer">
+        <p>Mortgage amortization is the process of repaying a home loan through fixed monthly payments. Early payments are interest-heavy, while later payments apply more toward principal. Over time, the loan balance decreases and interest charges shrink. Our amortization calculator generates a full monthly schedule showing exact dates, principal applied, interest amount, and remaining balance-plus a PDF summary.</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="faq-item">
+      <div class="faq-question">5. What factors affect U.S. mortgage interest rates?</div>
+      <div class="faq-answer">
+        <p>U.S. mortgage rates are influenced by Federal Reserve policy, inflation, bond yields, the housing market, credit score, debt-to-income ratio, and property type. Borrowers with higher credit scores typically receive lower rates. Our calculator lets you test different interest rates to compare long-term cost, monthly payments, and total interest for 15-year and 30-year mortgages.</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="faq-item">
+      <div class="faq-question">6. What is an escrow account?</div>
+      <div class="faq-answer">
+        <p>Escrow is a U.S. lender-managed account that collects monthly contributions for property taxes and homeowners insurance. Instead of paying a large annual bill, the lender includes a small monthly amount in your mortgage payment. Our calculator includes optional estimates for annual tax percentage and home insurance percentage to give you a realistic monthly payment including escrow.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="faq-item">
+      <div class="faq-question">7. What is APR and how is it different from interest rate?</div>
+      <div class="faq-answer">
+        <p>The interest rate reflects the cost of borrowing money, while APR (Annual Percentage Rate) includes the interest rate <strong>plus</strong> most lender fees, giving a more complete cost picture. Many U.S. borrowers compare APR when shopping for mortgages. Our mortgage calculator uses APR to compute accurate amortization and long-term interest projections.</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="faq-item">
+      <div class="faq-question">8. What is the difference between fixed-rate and adjustable-rate mortgages?</div>
+      <div class="faq-answer">
+        <p>A fixed-rate mortgage keeps the same interest rate for the entire loan term (e.g., 15-year or 30-year). An Adjustable-Rate Mortgage (ARM) starts with a fixed period (e.g., 5 years) and then adjusts annually based on market conditions. Our calculator works for fixed-rate loans; for ARMs, you can change the interest rate to simulate future adjustments.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="faq-item">
+      <div class="faq-question">9. What is mortgage refinancing?</div>
+      <div class="faq-answer">
+        <p>Refinancing is the process of replacing an existing mortgage with a new one, usually to lower the interest rate, reduce monthly payments, change the loan term, or access home equity (cash-out refinance). Our mortgage calculator helps estimate savings before refinancing by comparing payments and interest cost at different rates and terms.</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="faq-item">
+      <div class="faq-question">10. How much house can I afford in the USA?</div>
+      <div class="faq-answer">
+        <p>Most U.S. lenders follow the 28/36 rule: <strong>housing costs &le; 28%</strong> of gross monthly income and <strong>total debts &le; 36%</strong>. You should also consider taxes, insurance, PMI, and maintenance. Our calculator accurately includes escrow and PMI, helping you estimate realistic monthly payments before applying for a mortgage.</p>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="faq-item">
+      <div class="faq-question">11. When does PMI automatically end?</div>
+      <div class="faq-answer">
+        <p>Under the U.S. Homeowners Protection Act (HPA), PMI automatically ends when your mortgage reaches <strong>78% Loan-to-Value (LTV)</strong>. Borrowers may request early removal at 80% LTV by providing updated property value. Our calculator identifies when PMI applies based on your down payment.</p>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="faq-item">
+      <div class="faq-question">12. What is Loan-to-Value (LTV)?</div>
+      <div class="faq-answer">
+        <p>LTV is the percentage of the home price financed with a mortgage. Formula: <strong>LTV = Loan Amount &divide; Home Price &times; 100</strong>. A lower LTV gives better rates and eliminates PMI. Our calculator automatically shows PMI only when LTV is above 80% (down payment below 20%).</p>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="faq-item">
+      <div class="faq-question">13. What increases the total interest on a mortgage?</div>
+      <div class="faq-answer">
+        <p>Total interest increases with higher APR, longer terms (30-year vs 15-year), lower down payments, and large loan balances. Even a 0.25% rate change can significantly affect lifetime cost. Our calculator visualizes this using a line chart (balance reduction) and a pie chart (principal vs interest).</p>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="faq-item">
+      <div class="faq-question">14. Are property taxes and homeowners insurance required?</div>
+      <div class="faq-answer">
+        <p>Yes. Nearly all U.S. lenders require homeowners insurance, and most require property taxes to be paid into an escrow account. These additional costs must be added to your monthly payment. Our calculator computes monthly tax and insurance amounts automatically based on annual percentage rates.</p>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="faq-item">
+      <div class="faq-question">15. When is my first mortgage payment due?</div>
+      <div class="faq-answer">
+        <p>In the U.S., the first mortgage payment is typically due <strong>one full month after the loan closing or start date</strong>. If you select a Start Date in our calculator, it automatically calculates and displays your <strong>First Payment Date</strong> and the full <strong>Maturity Date</strong> for the loan.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <footer style="text-align:center;margin-top:28px;padding:18px;font-size:14px;color:var(--muted)">
+    &copy; FinanceCalculatorsHub &mdash; Smart finance tools &mdash;
+    <a href="/privacy.html">Privacy</a> &middot;
+    <a href="/terms.html">Terms</a>
+  </footer>
+</div>
+<!-- Part 3: JavaScript (logic, schedule with dates, PDF export) + FAQPage JSON-LD -->
+<script>
+(function(){
+'use strict';
+const $ = id => document.getElementById(id);
+
+// inputs
+const startDateInput = $('startDate');
+const homePrice = $('homePrice'), downPayment = $('downPayment'), termYears = $('termYears'), interestRate = $('interestRate');
+const propTax = $('propTax'), homeIns = $('homeIns'), pmiRate = $('pmiRate');
+const calcBtn = $('calcBtn'), resetBtn = $('resetBtn'), pdfBtn = $('pdfBtn');
+
+const monthlyBox = $('monthlyBox'), totalInterestBox = $('totalInterestBox'), snapshot = $('snapshot');
+const amBody = $('amBody'), amTableWrap = $('amTableWrap');
+const firstPaymentDateEl = $('firstPaymentDate'), maturityDateEl = $('maturityDate');
+
+let lineChart = null, pieChart = null;
+
+// helpers
+function fmtCurUSD(n){ return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(Number(n)); }
+function addMonths(date, months){
+  const d = new Date(date);
+  const day = d.getDate();
+  d.setMonth(d.getMonth() + months);
+  // handle month overflow (e.g., Jan 31 + 1 month -> Feb 28/29)
+  if(d.getDate() !== day){
+    d.setDate(0); // last day of previous month
+  }
+  return d;
+}
+
+// financial functions
+function monthlyPayment(principal, annualRate, months){
+  const r = (annualRate/100) / 12;
+  if(r === 0) return principal / months;
+  return principal * r / (1 - Math.pow(1 + r, -months));
+}
+
+function buildAmortizationWithDates(P, annualRate, months, monthlyPay, startDateStr){
+  let balance = Number(P);
+  const schedule = [];
+  // first payment date ~ one month after startDate (or if startDate empty, use first month 1..months without dates)
+  let startDate = startDateStr ? new Date(startDateStr + 'T00:00:00') : null;
+  for(let m=1; m<=months; m++){
+    const interest = balance * (annualRate/100) / 12;
+    const principalPaid = Math.min(monthlyPay - interest, balance);
+    balance = Math.max(0, balance - principalPaid);
+    let payDate = null;
+    if(startDate){
+      // first payment is one month after start
+      payDate = addMonths(startDate, m);
+    }
+    schedule.push({
+      month: m,
+      date: payDate ? payDate.toISOString().slice(0,10) : null,
+      payment: Number((monthlyPay).toFixed(2)),
+      interest: Number((interest).toFixed(2)),
+      principal: Number((principalPaid).toFixed(2)),
+      balance: Number((balance).toFixed(2))
+    });
+  }
+  return schedule;
+}
+
+function renderTable(schedule){
+  amBody.innerHTML = '';
+  schedule.forEach(r=>{
+    amBody.innerHTML += `<tr>
+      <td>${r.month}</td>
+      <td>${r.date ? r.date : '-'}</td>
+      <td style="text-align:right">${fmtCurUSD(r.payment)}</td>
+      <td style="text-align:right">${fmtCurUSD(r.interest)}</td>
+      <td style="text-align:right">${fmtCurUSD(r.principal)}</td>
+      <td style="text-align:right">${fmtCurUSD(r.balance)}</td>
+    </tr>`;
+  });
+  amTableWrap.removeAttribute('aria-hidden');
+}
+
+// charts
+function buildCharts(schedule, principalAmt, totalInterest){
+  const labels = schedule.map(s => s.date ? s.date : 'P'+s.month);
+  const balances = schedule.map(s => s.balance);
+  if(lineChart) lineChart.destroy();
+  lineChart = new Chart(document.getElementById('mortLine'), {
+    type: 'line',
+    data: { labels, datasets: [{ label: 'Balance', data: balances, borderColor:'#0f62fe', backgroundColor:'rgba(15,98,254,0.08)', fill: true, tension:0.3 }]},
+    options: { plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}}}
+  });
+
+  if(pieChart) pieChart.destroy();
+  pieChart = new Chart(document.getElementById('mortPie'), {
+    type:'pie',
+    data:{ labels:['Principal','Interest'], datasets:[{ data:[principalAmt, totalInterest], backgroundColor:['#0f62fe','#00bfa6']}]},
+    options:{ plugins:{legend:{position:'bottom'}}}
+  });
+}
+
+// main compute
+function computeAndRender(){
+  const price = Number(homePrice.value) || 0;
+  const down = Number(downPayment.value) || 0;
+  const years = Number(termYears.value) || 0;
+  const apr = Number(interestRate.value) || 0;
+  const taxPct = Number(propTax.value) || 0;
+  const insPct = Number(homeIns.value) || 0;
+  const pmiPct = Number(pmiRate.value) || 0;
+  const startDateStr = startDateInput.value || '';
+
+  if(price <= 0 || years <= 0){ alert('Enter valid home price and term'); return; }
+
+  const loanAmount = Math.max(0, price - down);
+  const months = years * 12;
+  const baseMonthly = monthlyPayment(loanAmount, apr, months);
+
+  // taxes & insurance monthly (converted from annual % on property price)
+  const taxMonthly = price * (taxPct/100) / 12;
+  const insMonthly = price * (insPct/100) / 12;
+
+  // PMI if down < 20%
+  const downPct = price ? (down / price) * 100 : 0;
+  const pmiMonthly = downPct < 20 ? (loanAmount * (pmiPct/100) / 12) : 0;
+
+  const totalMonthly = baseMonthly + taxMonthly + insMonthly + pmiMonthly;
+
+  // amortization schedule with dates
+  const schedule = buildAmortizationWithDates(loanAmount, apr, months, baseMonthly, startDateStr);
+  const totalInterest = schedule.reduce((s, r) => s + r.interest, 0);
+
+  monthlyBox.textContent = 'Monthly Payment ' + fmtCurUSD(totalMonthly);
+  totalInterestBox.textContent = 'Total Interest ' + fmtCurUSD(totalInterest);
+  snapshot.innerHTML = `Loan: ${fmtCurUSD(loanAmount)} &middot; APR: ${apr}% &middot; Term: ${years} years`;
+
+  // first payment & maturity dates
+  if(startDateStr){
+    const firstPay = schedule[0] && schedule[0].date ? schedule[0].date : null;
+    const mat = schedule[schedule.length - 1] && schedule[schedule.length -1].date ? schedule[schedule.length -1].date : null;
+    firstPaymentDateEl.textContent = firstPay ? (new Date(firstPay)).toLocaleDateString() : '—';
+    maturityDateEl.textContent = mat ? (new Date(mat)).toLocaleDateString() : '—';
+  } else {
+    firstPaymentDateEl.textContent = '-';
+    maturityDateEl.textContent = '-';
+  }
+
+  renderTable(schedule);
+  buildCharts(schedule, loanAmount, totalInterest);
+
+  window.__MORT__ = { inputs: {price, down, years, apr, taxPct, insPct, pmiPct, startDate: startDateStr}, loanAmount, months, baseMonthly, totalMonthly, schedule, totalInterest };
+}
+
+// wiring
+calcBtn.addEventListener('click', () => {
+  // Show immediate feedback (fixes UI freeze)
+  monthlyBox.textContent = 'Calculating...';
+  totalInterestBox.textContent = 'Please wait...';
+
+  // Allow UI to update first
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      computeAndRender();
+    }, 10);
+  });
+});
+resetBtn.addEventListener('click', ()=>{
+  homePrice.value = 350000; downPayment.value = 70000; termYears.value = 30; interestRate.value = 6.5; propTax.value = 1.1; homeIns.value = 0.35; pmiRate.value = 0.5;
+  startDateInput.value = '';
+  monthlyBox.textContent = 'Monthly Payment —'; totalInterestBox.textContent = 'Total Interest —'; snapshot.textContent = 'Enter values and click Calculate to view amortization, charts, and PDF report.';
+  amBody.innerHTML = ''; amTableWrap.setAttribute('aria-hidden','true'); firstPaymentDateEl.textContent='—'; maturityDateEl.textContent='—';
+  if(lineChart) lineChart.destroy(); if(pieChart) pieChart.destroy();
+});
+
+// init on load
+window.onload = function(){
+  homePrice.value = 350000; downPayment.value = 70000; termYears.value = 30; interestRate.value = 6.5; propTax.value = 1.1; homeIns.value = 0.35; pmiRate.value = 0.5;
+  startDateInput.value = '';
+  computeAndRender();
+};
+
+// PDF export (includes dates column)
+pdfBtn.addEventListener('click', ()=>{
+  if(!window.__MORT__){ alert('Calculate first'); return; }
+  const { inputs, loanAmount, schedule, totalInterest } = window.__MORT__;
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
+  const margin = 36; let y = margin;
+  const pageW = pdf.internal.pageSize.getWidth();
+
+  pdf.setFontSize(16);
+  pdf.text('FinanceCalculatorsHub - Mortgage Report', margin, y);
+  y += 18;
+  pdf.setFontSize(11);
+  pdf.text(`Loan Amount: ${fmtCurUSD(loanAmount)}  APR: ${inputs.apr}%  Term: ${inputs.years} years`, margin, y);
+  y += 14;
+  pdf.text(`Monthly Payment: ${fmtCurUSD(window.__MORT__.totalMonthly)}  Total Interest: ${fmtCurUSD(totalInterest)}`, margin, y);
+  y += 16;
+
+  try{
+    const img1 = document.getElementById('mortLine').toDataURL('image/png', 1.0);
+    const img2 = document.getElementById('mortPie').toDataURL('image/png', 1.0);
+    const cw = (pageW - margin*2 - 12) / 2; const ch = 120;
+    pdf.addImage(img2, 'PNG', margin, y, cw, ch);
+    pdf.addImage(img1, 'PNG', margin + cw + 12, y, cw, ch);
+    y += ch + 12;
+  }catch(e){ y += 12; }
+
+  const head = [['#','Date','Payment','Interest','Principal','Balance']];
+  const body = schedule.map(r => [ r.month, r.date ? r.date : '—', fmtCurUSD(r.payment), fmtCurUSD(r.interest), fmtCurUSD(r.principal), fmtCurUSD(r.balance) ]);
+
+  pdf.autoTable({
+    startY: y,
+    head: head,
+    body: body,
+    styles: { fontSize: 8, cellPadding: 6 },
+    theme: 'striped',
+    headStyles: { fillColor: [245,245,245], textColor: [0,0,0], fontStyle: 'bold' },
+    margin: { left: margin, right: margin }
+  });
+
+  pdf.save('mortgage_report.pdf');
+});
+
+// FAQ accordion (simple)
+document.addEventListener('click', function (e) {
+  if(e.target && e.target.classList && e.target.classList.contains('faq-question')){
+    const ans = e.target.nextElementSibling;
+    if(!ans) return;
+    ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+  }
+});
+})();
+</script>
+
+<!-- FAQPage JSON-LD for SEO (Matches 15 detailed FAQs) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+
+    {
+      "@type": "Question",
+      "name": "What is a mortgage loan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A mortgage loan is a long-term home financing product used in the United States, where a borrower receives funds from a lender to purchase a property. The home itself serves as collateral until the loan is fully paid off. Each monthly payment includes principal and interest. Our Mortgage Calculator helps U.S. borrowers estimate monthly payments, total interest, PMI, taxes, insurance, and generates a complete amortization schedule with payment dates."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "How is monthly mortgage payment calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monthly mortgage payment in the U.S. is calculated using the amortization formula based on loan amount, APR, and term in months. Payments include principal, interest, and may include escrow components such as property taxes, homeowners insurance, and PMI. Our calculator displays a month-by-month breakdown and provides a downloadable PDF report."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What is PMI and when is it charged?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Private Mortgage Insurance (PMI) is charged when the down payment is less than 20% of the home price. PMI protects the lender and increases monthly payment. Most U.S. lenders automatically remove PMI at 78% Loan-to-Value (LTV), or earlier at 80% LTV upon request. Our calculator adds PMI automatically when needed and shows its long-term cost."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "How does mortgage amortization work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mortgage amortization repays a home loan through fixed monthly payments. Early payments mostly cover interest, but over time more goes toward principal. Our amortization calculator produces a detailed schedule with dates, interest, principal, and remaining balance, and supports PDF export."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What factors affect U.S. mortgage interest rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mortgage rates are affected by Federal Reserve policy, inflation, bond market yields, credit score, debt-to-income ratio, and property type. Borrowers with higher credit scores receive better rates. Our calculator lets users test multiple APR scenarios to compare lifetime interest cost."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What is an escrow account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An escrow account is used by U.S. lenders to collect monthly funds for property taxes and homeowners insurance, preventing large annual bills. Our calculator includes estimated tax and insurance percentages to give a realistic monthly payment including escrow."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What is APR and how is it different from interest rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The interest rate is the cost of borrowing money, while APR includes the interest rate and most lender fees. APR provides a better overall cost comparison. Our mortgage calculator uses APR to calculate accurate payments and amortization schedules."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What is the difference between fixed-rate and adjustable-rate mortgages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fixed-rate mortgages maintain the same interest rate throughout the loan term. Adjustable-rate mortgages (ARMs) start with a fixed period and adjust annually afterward. Our calculator is designed for fixed-rate loans but can simulate ARM scenarios by changing rates."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What is mortgage refinancing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Refinancing replaces an existing mortgage with a new one—often to lower the interest rate, reduce monthly payments, shorten the term, or withdraw home equity. Our calculator helps estimate savings by comparing payments across different APRs and terms."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "How much house can I afford in the USA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many U.S. lenders follow the 28/36 rule: housing expenses should be 28% or less of gross income and total debt should be 36% or less. Taxes, insurance, PMI, and maintenance must be factored in. Our calculator includes escrow and PMI to estimate true monthly affordability."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "When does PMI automatically end?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The U.S. Homeowners Protection Act requires lenders to automatically remove PMI at 78% Loan-to-Value (LTV). Borrowers may request removal once reaching 80% LTV. Our calculator shows PMI only when your down payment is below 20%."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What is Loan-to-Value (LTV)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Loan-to-Value (LTV) is the loan amount divided by the property value. Lower LTV improves loan approval chances, lowers rates, and removes PMI. Our calculator computes PMI based on LTV and down payment percentage."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What increases the total interest on a mortgage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Total interest increases with higher APR, longer loan terms, small down payments, and large loan balances. Even a 0.25% APR change affects lifetime cost significantly. Our calculator visualizes interest vs principal using pie and line charts."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "Are property taxes and homeowners insurance required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the U.S., nearly all lenders require homeowners insurance and require property taxes to be paid annually. Many lenders collect these through monthly escrow payments. Our calculator includes tax and insurance percentages to calculate accurate monthly totals."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "When is my first mortgage payment due?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The first mortgage payment in the United States is typically due one full month after the loan closing or start date. If you enter a Start Date in our calculator, it automatically calculates the First Payment Date and the loan Maturity Date."
+      }
+    }
+
+  ]
+}
+</script>
+
+</body>
+</html>
